@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoMatch</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="home-view" class="view">
+        <div class="header-block">
+          <p class="eyebrow">Weighted car matching</p>
+          <h1>AutoMatch</h1>
+          <p class="intro">Choose a buyer profile and rank cars by what matters most.</p>
+        </div>
+
+        <form id="profile-form" class="control-panel">
+          <label for="profile-select">Profile</label>
+          <select id="profile-select" name="profile">
+            <option value="firstTimeBuyer">First-Time Buyer</option>
+            <option value="enthusiast">Enthusiast</option>
+            <option value="dailyCommuter">Daily Commuter</option>
+          </select>
+          <button type="submit">Find Cars</button>
+        </form>
+      </section>
+
+      <section id="results-view" class="view hidden">
+          <div class="page-topbar">
+              <button id="back-home" class="secondary-button" type="button">Change Profile</button>
+              <div>
+                  <p class="eyebrow">Results</p>
+                  <h2 id="results-title">Car Rankings</h2>
+              </div>
+          </div>
+
+          <div id="profile-summary" class="summary-strip"></div>
+
+          <div class="controls">
+              <input type="text" id="search-input" placeholder="Search Civic, Corolla, Mustang..." />
+
+              <select id="sort-select">
+                  <option value="bestMatch">Best Match</option>
+                  <option value="performance">Performance</option>
+                  <option value="cost">Lowest Cost</option>
+              </select>
+          </div>
+
+          <div id="rankings-list"></div>
+      </section>
+
+      <section id="details-view" class="view hidden">
+        <div class="page-topbar">
+          <button id="back-results" class="secondary-button" type="button">Back to Rankings</button>
+          <div>
+            <p class="eyebrow">Car details</p>
+            <h2 id="details-title"></h2>
+          </div>
+        </div>
+
+        <div class="details-grid">
+          <section class="details-panel">
+            <div class="score-callout">
+              <span>Final Score</span>
+              <strong id="details-final-score"></strong>
+            </div>
+            <p id="details-rank-note" class="rank-note"></p>
+            <p id="details-why" class="why-copy"></p>
+          </section>
+
+          <section class="details-panel">
+            <h3>Category Scores</h3>
+            <div id="category-scores" class="category-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="error-view" class="view hidden">
+        <h1>AutoMatch</h1>
+        <p id="error-message" class="error-message"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
