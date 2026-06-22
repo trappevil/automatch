@@ -141,7 +141,7 @@ function renderRankings() {
 
     cars = cars.filter(car =>
         car.name.toLowerCase().includes((state.searchTerm || '').toLowerCase()) &&
-        (state.bodyFilter === 'all' || car.body === state.bodyFilter)
+        (state.bodyFilter === 'all' || car.bodyStyle === state.bodyFilter)
     );
 
     cars = applySort(cars);
