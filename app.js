@@ -199,10 +199,10 @@ function renderDetails(carId) {
         <div class="category-row">
           <div class="category-topline">
             <span>${category.label}</span>
-            <span>${score} / 100 | weight ${weightPercent}%</span>
+            <span>${score} / 10 | weight ${weightPercent}%</span>
           </div>
           <div class="bar-track" aria-hidden="true">
-            <div class="bar-fill" style="width: ${score}%"></div>
+            <div class="bar-fill" style="width: ${score * 10}%"></div>
           </div>
         </div>
       `;
