@@ -44,7 +44,8 @@ const state = {
     selectedProfileKey: 'firstTimeBuyer',
     rankedCars: [],
     searchTerm: '',
-    sortMode: 'bestMatch'
+    sortMode: 'bestMatch',
+    bodyFilter: 'all'
 };
 
 const views = {
@@ -67,6 +68,7 @@ const detailsRankNote = document.querySelector('#details-rank-note');
 const detailsWhy = document.querySelector('#details-why');
 const categoryScores = document.querySelector('#category-scores');
 const errorMessage = document.querySelector('#error-message');
+const filterBody = document.querySelector('#filter-body');
 
 function showView(name) {
   Object.values(views).forEach((view) => view.classList.add('hidden'));
@@ -137,11 +139,10 @@ function renderRankings() {
 
     let cars = rankCars(state.selectedProfileKey);
 
-    if (state.searchTerm) {
-        cars = cars.filter(car =>
-            car.name.toLowerCase().includes(state.searchTerm.toLowerCase())
-        );
-    }
+    cars = cars.filter(car =>
+        car.name.toLowerCase().includes((state.searchTerm || '').toLowerCase()) &&
+        (state.bodyFilter === 'all' || car.body === state.bodyFilter)
+    );
 
     cars = applySort(cars);
 
@@ -241,6 +242,11 @@ rankingsList.addEventListener('click', (event) => {
 
 searchInput.addEventListener('input', (event) => {
     state.searchTerm = event.target.value;
+    renderRankings();
+});
+
+filterBody.addEventListener('change', (event) => {
+    state.bodyFilter = event.target.value;
     renderRankings();
 });
 
