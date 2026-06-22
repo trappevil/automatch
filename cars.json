@@ -2,310 +2,310 @@
     {
         "id": "2015-honda-civic",
         "name": "2015 Honda Civic",
-        "reliability": 90,
-        "costOfOwnership": 90,
-        "insuranceAffordability": 85,
-        "fuelEfficiency": 85,
-        "performance": 65
+        "reliability": 9.0,
+        "costOfOwnership": 9.0,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 8.5,
+        "performance": 6.5
     },
     {
         "id": "2015-toyota-corolla",
         "name": "2015 Toyota Corolla",
-        "reliability": 90,
-        "costOfOwnership": 90,
-        "insuranceAffordability": 85,
-        "fuelEfficiency": 85,
-        "performance": 60
+        "reliability": 9.0,
+        "costOfOwnership": 9.0,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 8.5,
+        "performance": 6.0
     },
     {
         "id": "2015-mazda3",
         "name": "2015 Mazda3",
-        "reliability": 85,
-        "costOfOwnership": 80,
-        "insuranceAffordability": 80,
-        "fuelEfficiency": 80,
-        "performance": 75
+        "reliability": 8.5,
+        "costOfOwnership": 8.0,
+        "insuranceAffordability": 8.0,
+        "fuelEfficiency": 8.0,
+        "performance": 7.5
     },
     {
         "id": "2015-hyundai-elantra",
         "name": "2015 Hyundai Elantra",
-        "reliability": 82,
-        "costOfOwnership": 85,
-        "insuranceAffordability": 85,
-        "fuelEfficiency": 85,
-        "performance": 60
+        "reliability": 8.2,
+        "costOfOwnership": 8.5,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 8.5,
+        "performance": 6.0
     },
     {
         "id": "2015-kia-forte",
         "name": "2015 Kia Forte",
-        "reliability": 80,
-        "costOfOwnership": 85,
-        "insuranceAffordability": 85,
-        "fuelEfficiency": 80,
-        "performance": 58
+        "reliability": 8.0,
+        "costOfOwnership": 8.5,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 8.0,
+        "performance": 5.8
     },
     {
         "id": "2015-subaru-impreza",
         "name": "2015 Subaru Impreza",
-        "reliability": 80,
-        "costOfOwnership": 75,
-        "insuranceAffordability": 78,
-        "fuelEfficiency": 70,
-        "performance": 65
+        "reliability": 8.0,
+        "costOfOwnership": 7.5,
+        "insuranceAffordability": 7.8,
+        "fuelEfficiency": 7.0,
+        "performance": 6.5
     },
     {
         "id": "2015-nissan-sentra",
         "name": "2015 Nissan Sentra",
-        "reliability": 78,
-        "costOfOwnership": 82,
-        "insuranceAffordability": 84,
-        "fuelEfficiency": 78,
-        "performance": 55
+        "reliability": 7.8,
+        "costOfOwnership": 8.2,
+        "insuranceAffordability": 8.4,
+        "fuelEfficiency": 7.8,
+        "performance": 5.5
     },
     {
         "id": "2015-volkswagen-jetta",
         "name": "2015 Volkswagen Jetta",
-        "reliability": 72,
-        "costOfOwnership": 72,
-        "insuranceAffordability": 74,
-        "fuelEfficiency": 80,
-        "performance": 68
+        "reliability": 7.2,
+        "costOfOwnership": 7.2,
+        "insuranceAffordability": 7.4,
+        "fuelEfficiency": 8.0,
+        "performance": 6.8
     },
     {
         "id": "2015-toyota-camry",
         "name": "2015 Toyota Camry",
-        "reliability": 92,
-        "costOfOwnership": 85,
-        "insuranceAffordability": 80,
-        "fuelEfficiency": 78,
-        "performance": 68
+        "reliability": 9.2,
+        "costOfOwnership": 8.5,
+        "insuranceAffordability": 8.0,
+        "fuelEfficiency": 7.8,
+        "performance": 6.8
     },
     {
         "id": "2015-honda-accord",
         "name": "2015 Honda Accord",
-        "reliability": 90,
-        "costOfOwnership": 82,
-        "insuranceAffordability": 78,
-        "fuelEfficiency": 75,
-        "performance": 75
+        "reliability": 9.0,
+        "costOfOwnership": 8.2,
+        "insuranceAffordability": 7.8,
+        "fuelEfficiency": 7.5,
+        "performance": 7.5
     },
     {
         "id": "2015-hyundai-sonata",
         "name": "2015 Hyundai Sonata",
-        "reliability": 82,
-        "costOfOwnership": 83,
-        "insuranceAffordability": 82,
-        "fuelEfficiency": 78,
-        "performance": 65
+        "reliability": 8.2,
+        "costOfOwnership": 8.3,
+        "insuranceAffordability": 8.2,
+        "fuelEfficiency": 7.8,
+        "performance": 6.5
     },
     {
         "id": "2015-kia-k5",
         "name": "2015 Kia K5",
-        "reliability": 80,
-        "costOfOwnership": 78,
-        "insuranceAffordability": 77,
-        "fuelEfficiency": 72,
-        "performance": 73
+        "reliability": 8.0,
+        "costOfOwnership": 7.8,
+        "insuranceAffordability": 7.7,
+        "fuelEfficiency": 7.2,
+        "performance": 7.3
     },
     {
         "id": "2015-subaru-legacy",
         "name": "2015 Subaru Legacy",
-        "reliability": 81,
-        "costOfOwnership": 74,
-        "insuranceAffordability": 75,
-        "fuelEfficiency": 68,
-        "performance": 65
+        "reliability": 8.1,
+        "costOfOwnership": 7.4,
+        "insuranceAffordability": 7.5,
+        "fuelEfficiency": 6.8,
+        "performance": 6.5
     },
     {
         "id": "2015-toyota-prius",
         "name": "2015 Toyota Prius",
-        "reliability": 92,
-        "costOfOwnership": 92,
-        "insuranceAffordability": 85,
-        "fuelEfficiency": 98,
-        "performance": 50
+        "reliability": 9.2,
+        "costOfOwnership": 9.2,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 9.8,
+        "performance": 5.0
     },
     {
-        "id": "2015-hyundai-ioniq-hybrid",
-        "name": "2015 Hyundai Ioniq Hybrid",
-        "reliability": 84,
-        "costOfOwnership": 87,
-        "insuranceAffordability": 82,
-        "fuelEfficiency": 96,
-        "performance": 55
+        "id": "2017-hyundai-ioniq-hybrid",
+        "name": "2017 Hyundai Ioniq Hybrid",
+        "reliability": 8.4,
+        "costOfOwnership": 8.7,
+        "insuranceAffordability": 8.2,
+        "fuelEfficiency": 9.6,
+        "performance": 5.5
     },
 
     {
         "id": "2015-toyota-rav4",
         "name": "2015 Toyota RAV4",
-        "reliability": 88,
-        "costOfOwnership": 82,
-        "insuranceAffordability": 78,
-        "fuelEfficiency": 75,
-        "performance": 65
+        "reliability": 8.8,
+        "costOfOwnership": 8.2,
+        "insuranceAffordability": 7.8,
+        "fuelEfficiency": 7.5,
+        "performance": 6.5
     },
     {
         "id": "2015-honda-crv",
         "name": "2015 Honda CR-V",
-        "reliability": 89,
-        "costOfOwnership": 80,
-        "insuranceAffordability": 77,
-        "fuelEfficiency": 72,
-        "performance": 63
+        "reliability": 8.9,
+        "costOfOwnership": 8.0,
+        "insuranceAffordability": 7.7,
+        "fuelEfficiency": 7.2,
+        "performance": 6.3
     },
     {
         "id": "2015-mazda-cx5",
         "name": "2015 Mazda CX-5",
-        "reliability": 84,
-        "costOfOwnership": 75,
-        "insuranceAffordability": 72,
-        "fuelEfficiency": 68,
-        "performance": 72
+        "reliability": 8.4,
+        "costOfOwnership": 7.5,
+        "insuranceAffordability": 7.2,
+        "fuelEfficiency": 6.8,
+        "performance": 7.2
     },
     {
         "id": "2015-subaru-forester",
         "name": "2015 Subaru Forester",
-        "reliability": 83,
-        "costOfOwnership": 76,
-        "insuranceAffordability": 74,
-        "fuelEfficiency": 70,
-        "performance": 63
+        "reliability": 8.3,
+        "costOfOwnership": 7.6,
+        "insuranceAffordability": 7.4,
+        "fuelEfficiency": 7.0,
+        "performance": 6.3
     },
     {
         "id": "2015-ford-escape",
         "name": "2015 Ford Escape",
-        "reliability": 72,
-        "costOfOwnership": 70,
-        "insuranceAffordability": 72,
-        "fuelEfficiency": 68,
-        "performance": 66
+        "reliability": 7.2,
+        "costOfOwnership": 7.0,
+        "insuranceAffordability": 7.2,
+        "fuelEfficiency": 6.8,
+        "performance": 6.6
     },
     {
         "id": "2015-hyundai-tucson",
         "name": "2015 Hyundai Tucson",
-        "reliability": 81,
-        "costOfOwnership": 78,
-        "insuranceAffordability": 76,
-        "fuelEfficiency": 70,
-        "performance": 64
+        "reliability": 8.1,
+        "costOfOwnership": 7.8,
+        "insuranceAffordability": 7.6,
+        "fuelEfficiency": 7.0,
+        "performance": 6.4
     },
 
     {
         "id": "2015-mustang-gt",
         "name": "2015 Ford Mustang GT",
-        "reliability": 70,
-        "costOfOwnership": 65,
-        "insuranceAffordability": 55,
-        "fuelEfficiency": 45,
-        "performance": 90
+        "reliability": 7.0,
+        "costOfOwnership": 6.5,
+        "insuranceAffordability": 5.5,
+        "fuelEfficiency": 4.5,
+        "performance": 9.0
     },
     {
         "id": "2015-camaro-ss",
         "name": "2015 Chevrolet Camaro SS",
-        "reliability": 68,
-        "costOfOwnership": 64,
-        "insuranceAffordability": 54,
-        "fuelEfficiency": 45,
-        "performance": 90
+        "reliability": 6.8,
+        "costOfOwnership": 6.4,
+        "insuranceAffordability": 5.4,
+        "fuelEfficiency": 4.5,
+        "performance": 8.9
     },
     {
         "id": "2014-charger-rt",
         "name": "2014 Dodge Charger R/T",
-        "reliability": 65,
-        "costOfOwnership": 70,
-        "insuranceAffordability": 55,
-        "fuelEfficiency": 45,
-        "performance": 88
+        "reliability": 6.5,
+        "costOfOwnership": 7.0,
+        "insuranceAffordability": 5.5,
+        "fuelEfficiency": 4.5,
+        "performance": 8.8
     },
     {
         "id": "2014-corvette-stingray",
         "name": "2014 Chevrolet Corvette Stingray",
-        "reliability": 75,
-        "costOfOwnership": 70,
-        "insuranceAffordability": 55,
-        "fuelEfficiency": 45,
-        "performance": 92
+        "reliability": 7.5,
+        "costOfOwnership": 7.0,
+        "insuranceAffordability": 5.5,
+        "fuelEfficiency": 4.5,
+        "performance": 9.6
     },
     {
         "id": "2021-gr-supra",
         "name": "2021 Toyota GR Supra",
-        "reliability": 82,
-        "costOfOwnership": 72,
-        "insuranceAffordability": 58,
-        "fuelEfficiency": 70,
-        "performance": 88
+        "reliability": 8.2,
+        "costOfOwnership": 7.2,
+        "insuranceAffordability": 5.8,
+        "fuelEfficiency": 7.0,
+        "performance": 8.8
     },
     {
         "id": "2015-wrx",
         "name": "2015 Subaru WRX",
-        "reliability": 80,
-        "costOfOwnership": 72,
-        "insuranceAffordability": 70,
-        "fuelEfficiency": 68,
-        "performance": 88
+        "reliability": 8.0,
+        "costOfOwnership": 7.2,
+        "insuranceAffordability": 7.0,
+        "fuelEfficiency": 6.8,
+        "performance": 8.6
     },
     {
         "id": "2015-frs",
         "name": "2015 Scion FR-S",
-        "reliability": 82,
-        "costOfOwnership": 78,
-        "insuranceAffordability": 80,
-        "fuelEfficiency": 82,
-        "performance": 85
+        "reliability": 8.2,
+        "costOfOwnership": 7.8,
+        "insuranceAffordability": 8.0,
+        "fuelEfficiency": 8.2,
+        "performance": 8.3
     },
     {
         "id": "2015-370z",
         "name": "2015 Nissan 370Z",
-        "reliability": 78,
-        "costOfOwnership": 70,
-        "insuranceAffordability": 55,
-        "fuelEfficiency": 50,
-        "performance": 88
+        "reliability": 7.8,
+        "costOfOwnership": 7.0,
+        "insuranceAffordability": 5.5,
+        "fuelEfficiency": 5.0,
+        "performance": 8.8
     },
 
     {
         "id": "2015-porsche-911",
         "name": "2015 Porsche 911 Carrera",
-        "reliability": 80,
-        "costOfOwnership": 40,
-        "insuranceAffordability": 40,
-        "fuelEfficiency": 55,
-        "performance": 95
+        "reliability": 8.0,
+        "costOfOwnership": 4.0,
+        "insuranceAffordability": 4.0,
+        "fuelEfficiency": 5.5,
+        "performance": 9.8
     },
     {
         "id": "2015-audi-rs5",
         "name": "2015 Audi RS5",
-        "reliability": 75,
-        "costOfOwnership": 45,
-        "insuranceAffordability": 45,
-        "fuelEfficiency": 55,
-        "performance": 90
+        "reliability": 7.5,
+        "costOfOwnership": 4.5,
+        "insuranceAffordability": 4.5,
+        "fuelEfficiency": 5.5,
+        "performance": 9.2
     },
     {
         "id": "2015-bmw-m4",
         "name": "2015 BMW M4",
-        "reliability": 65,
-        "costOfOwnership": 45,
-        "insuranceAffordability": 45,
-        "fuelEfficiency": 55,
-        "performance": 90
+        "reliability": 6.5,
+        "costOfOwnership": 4.5,
+        "insuranceAffordability": 4.5,
+        "fuelEfficiency": 5.5,
+        "performance": 9.4
     },
     {
         "id": "2015-c63-amg",
         "name": "2015 Mercedes-Benz C63 AMG",
-        "reliability": 65,
-        "costOfOwnership": 45,
-        "insuranceAffordability": 45,
-        "fuelEfficiency": 55,
-        "performance": 90
+        "reliability": 6.5,
+        "costOfOwnership": 4.5,
+        "insuranceAffordability": 4.5,
+        "fuelEfficiency": 5.5,
+        "performance": 9.3
     },
     {
         "id": "2021-hellcat",
         "name": "2021 Dodge Challenger SRT Hellcat",
-        "reliability": 70,
-        "costOfOwnership": 55,
-        "insuranceAffordability": 40,
-        "fuelEfficiency": 35,
-        "performance": 95
+        "reliability": 7.0,
+        "costOfOwnership": 5.5,
+        "insuranceAffordability": 4.0,
+        "fuelEfficiency": 3.5,
+        "performance": 9.5
     }
 ]
