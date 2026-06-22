@@ -28,7 +28,10 @@
 
       <section id="results-view" class="view hidden">
           <div class="page-topbar">
-              <button id="back-home" class="secondary-button" type="button">Change Profile</button>
+              <button id="back-home" class="secondary-button" type="button">
+                  Change Profile
+              </button>
+
               <div>
                   <p class="eyebrow">Results</p>
                   <h2 id="results-title">Car Rankings</h2>
@@ -38,7 +41,17 @@
           <div id="profile-summary" class="summary-strip"></div>
 
           <div class="controls">
-              <input type="text" id="search-input" placeholder="Search Civic, Corolla, Mustang..." />
+              <select id="filter-body">
+                  <option value="all">All Body Styles</option>
+                  <option value="Sedan">Sedan</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Coupe">Coupe</option>
+                  <option value="Hatchback">Hatchback</option>
+              </select>
+
+              <input type="text"
+                     id="search-input"
+                     placeholder="Search Civic, Corolla, Mustang..." />
 
               <select id="sort-select">
                   <option value="bestMatch">Best Match</option>
