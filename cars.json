@@ -307,5 +307,185 @@
         "insuranceAffordability": 4.0,
         "fuelEfficiency": 3.5,
         "performance": 9.5
+    },
+    {
+        "id": "2016-honda-fit",
+        "name": "2016 Honda Fit",
+        "reliability": 8.8,
+        "costOfOwnership": 9.2,
+        "insuranceAffordability": 9.0,
+        "fuelEfficiency": 9.3,
+        "performance": 6.2
+    },
+    {
+        "id": "2016-toyota-yaris",
+        "name": "2016 Toyota Yaris",
+        "reliability": 8.7,
+        "costOfOwnership": 9.0,
+        "insuranceAffordability": 9.1,
+        "fuelEfficiency": 8.8,
+        "performance": 5.8
+    },
+    {
+        "id": "2016-honda-civic-si",
+        "name": "2016 Honda Civic Si",
+        "reliability": 8.6,
+        "costOfOwnership": 8.2,
+        "insuranceAffordability": 8.0,
+        "fuelEfficiency": 7.8,
+        "performance": 8.4
+    },
+    {
+        "id": "2016-volkswagen-gti",
+        "name": "2016 Volkswagen GTI",
+        "reliability": 7.8,
+        "costOfOwnership": 7.5,
+        "insuranceAffordability": 7.6,
+        "fuelEfficiency": 7.9,
+        "performance": 8.6
+    },
+    {
+        "id": "2016-mazda-miata",
+        "name": "2016 Mazda MX-5 Miata",
+        "reliability": 8.5,
+        "costOfOwnership": 8.4,
+        "insuranceAffordability": 8.5,
+        "fuelEfficiency": 8.7,
+        "performance": 8.8
+    },
+    {
+        "id": "2017-hyundai-elantra-gt",
+        "name": "2017 Hyundai Elantra GT",
+        "reliability": 8.2,
+        "costOfOwnership": 8.5,
+        "insuranceAffordability": 8.6,
+        "fuelEfficiency": 8.3,
+        "performance": 7.2
+    },
+    {
+        "id": "2017-kia-optima",
+        "name": "2017 Kia Optima",
+        "reliability": 8.0,
+        "costOfOwnership": 8.3,
+        "insuranceAffordability": 8.4,
+        "fuelEfficiency": 8.0,
+        "performance": 7.0
+    },
+    {
+        "id": "2017-toyota-86",
+        "name": "2017 Toyota 86",
+        "reliability": 8.3,
+        "costOfOwnership": 7.8,
+        "insuranceAffordability": 7.7,
+        "fuelEfficiency": 8.0,
+        "performance": 8.5
+    },
+    {
+        "id": "2017-honda-hrv",
+        "name": "2017 Honda HR-V",
+        "reliability": 8.7,
+        "costOfOwnership": 8.6,
+        "insuranceAffordability": 8.7,
+        "fuelEfficiency": 8.4,
+        "performance": 6.3
+    },
+    {
+        "id": "2017-subaru-outback",
+        "name": "2017 Subaru Outback",
+        "reliability": 8.6,
+        "costOfOwnership": 8.0,
+        "insuranceAffordability": 8.0,
+        "fuelEfficiency": 7.5,
+        "performance": 6.8
+    },
+    {
+        "id": "2016-ford-fusion",
+        "name": "2016 Ford Fusion",
+        "reliability": 7.8,
+        "costOfOwnership": 7.9,
+        "insuranceAffordability": 7.8,
+        "fuelEfficiency": 8.0,
+        "performance": 7.0
+    },
+    {
+        "id": "2016-chevy-malibu",
+        "name": "2016 Chevrolet Malibu",
+        "reliability": 7.6,
+        "costOfOwnership": 8.0,
+        "insuranceAffordability": 8.1,
+        "fuelEfficiency": 8.2,
+        "performance": 6.8
+    },
+    {
+        "id": "2017-lexus-is300",
+        "name": "2017 Lexus IS 300",
+        "reliability": 9.0,
+        "costOfOwnership": 7.5,
+        "insuranceAffordability": 7.0,
+        "fuelEfficiency": 7.2,
+        "performance": 7.8
+    },
+    {
+        "id": "2017-acura-tlx",
+        "name": "2017 Acura TLX",
+        "reliability": 8.7,
+        "costOfOwnership": 7.8,
+        "insuranceAffordability": 7.6,
+        "fuelEfficiency": 7.5,
+        "performance": 7.6
+    },
+    {
+        "id": "2016-infiniti-q50",
+        "name": "2016 Infiniti Q50",
+        "reliability": 7.5,
+        "costOfOwnership": 7.2,
+        "insuranceAffordability": 7.0,
+        "fuelEfficiency": 7.0,
+        "performance": 8.2
+    },
+    {
+        "id": "2017-bmw-340i",
+        "name": "2017 BMW 340i",
+        "reliability": 7.0,
+        "costOfOwnership": 6.5,
+        "insuranceAffordability": 6.0,
+        "fuelEfficiency": 7.2,
+        "performance": 9.0
+    },
+    {
+        "id": "2017-audi-a4",
+        "name": "2017 Audi A4",
+        "reliability": 7.6,
+        "costOfOwnership": 6.8,
+        "insuranceAffordability": 6.8,
+        "fuelEfficiency": 7.8,
+        "performance": 7.8
+    },
+    {
+        "id": "2017-mercedes-c300",
+        "name": "2017 Mercedes C300",
+        "reliability": 7.4,
+        "costOfOwnership": 6.7,
+        "insuranceAffordability": 6.5,
+        "fuelEfficiency": 7.5,
+        "performance": 7.7
+    },
+    {
+        "id": "2016-jeep-grand-cherokee",
+        "name": "2016 Jeep Grand Cherokee",
+        "reliability": 7.2,
+        "costOfOwnership": 7.0,
+        "insuranceAffordability": 6.8,
+        "fuelEfficiency": 6.5,
+        "performance": 7.5
+    },
+    {
+        "id": "2016-ford-explorer",
+        "name": "2016 Ford Explorer",
+        "reliability": 7.4,
+        "costOfOwnership": 7.2,
+        "insuranceAffordability": 7.0,
+        "fuelEfficiency": 6.6,
+        "performance": 7.3
     }
 ]
