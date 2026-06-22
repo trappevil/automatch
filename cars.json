@@ -6,7 +6,8 @@
         "costOfOwnership": 9.0,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 8.5,
-        "performance": 6.5
+        "performance": 6.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-toyota-corolla",
@@ -15,7 +16,8 @@
         "costOfOwnership": 9.0,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 8.5,
-        "performance": 6.0
+        "performance": 6.0,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-mazda3",
@@ -24,7 +26,8 @@
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.0,
         "fuelEfficiency": 8.0,
-        "performance": 7.5
+        "performance": 7.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-hyundai-elantra",
@@ -33,7 +36,8 @@
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 8.5,
-        "performance": 6.0
+        "performance": 6.0,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-kia-forte",
@@ -42,7 +46,8 @@
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 8.0,
-        "performance": 5.8
+        "performance": 5.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-subaru-impreza",
@@ -51,7 +56,8 @@
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.8,
         "fuelEfficiency": 7.0,
-        "performance": 6.5
+        "performance": 6.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-nissan-sentra",
@@ -60,7 +66,8 @@
         "costOfOwnership": 8.2,
         "insuranceAffordability": 8.4,
         "fuelEfficiency": 7.8,
-        "performance": 5.5
+        "performance": 5.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-volkswagen-jetta",
@@ -69,7 +76,8 @@
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.4,
         "fuelEfficiency": 8.0,
-        "performance": 6.8
+        "performance": 6.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-toyota-camry",
@@ -78,7 +86,8 @@
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.0,
         "fuelEfficiency": 7.8,
-        "performance": 6.8
+        "performance": 6.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-honda-accord",
@@ -87,7 +96,8 @@
         "costOfOwnership": 8.2,
         "insuranceAffordability": 7.8,
         "fuelEfficiency": 7.5,
-        "performance": 7.5
+        "performance": 7.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-hyundai-sonata",
@@ -96,7 +106,8 @@
         "costOfOwnership": 8.3,
         "insuranceAffordability": 8.2,
         "fuelEfficiency": 7.8,
-        "performance": 6.5
+        "performance": 6.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-kia-k5",
@@ -105,7 +116,8 @@
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.7,
         "fuelEfficiency": 7.2,
-        "performance": 7.3
+        "performance": 7.3,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-subaru-legacy",
@@ -114,7 +126,8 @@
         "costOfOwnership": 7.4,
         "insuranceAffordability": 7.5,
         "fuelEfficiency": 6.8,
-        "performance": 6.5
+        "performance": 6.5,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-toyota-prius",
@@ -123,7 +136,8 @@
         "costOfOwnership": 9.2,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 9.8,
-        "performance": 5.0
+        "performance": 5.0,
+        "bodyStyle": "Hatchback"
     },
     {
         "id": "2017-hyundai-ioniq-hybrid",
@@ -132,7 +146,8 @@
         "costOfOwnership": 8.7,
         "insuranceAffordability": 8.2,
         "fuelEfficiency": 9.6,
-        "performance": 5.5
+        "performance": 5.5,
+        "bodyStyle": "Hatchback"
     },
 
     {
@@ -142,7 +157,8 @@
         "costOfOwnership": 8.2,
         "insuranceAffordability": 7.8,
         "fuelEfficiency": 7.5,
-        "performance": 6.5
+        "performance": 6.5,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2015-honda-crv",
@@ -151,7 +167,8 @@
         "costOfOwnership": 8.0,
         "insuranceAffordability": 7.7,
         "fuelEfficiency": 7.2,
-        "performance": 6.3
+        "performance": 6.3,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2015-mazda-cx5",
@@ -160,7 +177,8 @@
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.2,
         "fuelEfficiency": 6.8,
-        "performance": 7.2
+        "performance": 7.2,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2015-subaru-forester",
@@ -169,7 +187,8 @@
         "costOfOwnership": 7.6,
         "insuranceAffordability": 7.4,
         "fuelEfficiency": 7.0,
-        "performance": 6.3
+        "performance": 6.3,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2015-ford-escape",
@@ -178,7 +197,8 @@
         "costOfOwnership": 7.0,
         "insuranceAffordability": 7.2,
         "fuelEfficiency": 6.8,
-        "performance": 6.6
+        "performance": 6.6,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2015-hyundai-tucson",
@@ -187,7 +207,8 @@
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.6,
         "fuelEfficiency": 7.0,
-        "performance": 6.4
+        "performance": 6.4,
+        "bodyStyle": "SUV"
     },
 
     {
@@ -197,7 +218,8 @@
         "costOfOwnership": 6.5,
         "insuranceAffordability": 5.5,
         "fuelEfficiency": 4.5,
-        "performance": 9.0
+        "performance": 9.0,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2015-camaro-ss",
@@ -206,7 +228,8 @@
         "costOfOwnership": 6.4,
         "insuranceAffordability": 5.4,
         "fuelEfficiency": 4.5,
-        "performance": 8.9
+        "performance": 8.9,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2014-charger-rt",
@@ -215,7 +238,8 @@
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
         "fuelEfficiency": 4.5,
-        "performance": 8.8
+        "performance": 8.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2014-corvette-stingray",
@@ -224,7 +248,8 @@
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
         "fuelEfficiency": 4.5,
-        "performance": 9.6
+        "performance": 9.6,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2021-gr-supra",
@@ -233,7 +258,8 @@
         "costOfOwnership": 7.2,
         "insuranceAffordability": 5.8,
         "fuelEfficiency": 7.0,
-        "performance": 8.8
+        "performance": 8.8,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2015-wrx",
@@ -242,7 +268,8 @@
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
         "fuelEfficiency": 6.8,
-        "performance": 8.6
+        "performance": 8.6,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2015-frs",
@@ -251,7 +278,8 @@
         "costOfOwnership": 7.8,
         "insuranceAffordability": 8.0,
         "fuelEfficiency": 8.2,
-        "performance": 8.3
+        "performance": 8.3,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2015-370z",
@@ -260,7 +288,8 @@
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
         "fuelEfficiency": 5.0,
-        "performance": 8.8
+        "performance": 8.8,
+        "bodyStyle": "Coupe"
     },
 
     {
@@ -270,7 +299,8 @@
         "costOfOwnership": 4.0,
         "insuranceAffordability": 4.0,
         "fuelEfficiency": 5.5,
-        "performance": 9.8
+        "performance": 9.8,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2015-audi-rs5",
@@ -279,7 +309,9 @@
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
         "fuelEfficiency": 5.5,
-        "performance": 9.2
+        "performance": 9.2,
+        "bodyStyle": "Coupe"
+
     },
     {
         "id": "2015-bmw-m4",
@@ -288,7 +320,8 @@
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
         "fuelEfficiency": 5.5,
-        "performance": 9.4
+        "performance": 9.4,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2015-c63-amg",
@@ -297,7 +330,8 @@
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
         "fuelEfficiency": 5.5,
-        "performance": 9.3
+        "performance": 9.3,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2021-hellcat",
@@ -306,7 +340,8 @@
         "costOfOwnership": 5.5,
         "insuranceAffordability": 4.0,
         "fuelEfficiency": 3.5,
-        "performance": 9.5
+        "performance": 9.5,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2016-honda-fit",
@@ -315,7 +350,8 @@
         "costOfOwnership": 9.2,
         "insuranceAffordability": 9.0,
         "fuelEfficiency": 9.3,
-        "performance": 6.2
+        "performance": 6.2,
+        "bodyStyle": "Hatchback"
     },
     {
         "id": "2016-toyota-yaris",
@@ -324,7 +360,8 @@
         "costOfOwnership": 9.0,
         "insuranceAffordability": 9.1,
         "fuelEfficiency": 8.8,
-        "performance": 5.8
+        "performance": 5.8,
+        "bodyStyle": "Hatchback"
     },
     {
         "id": "2016-honda-civic-si",
@@ -333,7 +370,8 @@
         "costOfOwnership": 8.2,
         "insuranceAffordability": 8.0,
         "fuelEfficiency": 7.8,
-        "performance": 8.4
+        "performance": 8.4,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2016-volkswagen-gti",
@@ -342,7 +380,8 @@
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.6,
         "fuelEfficiency": 7.9,
-        "performance": 8.6
+        "performance": 8.6,
+        "bodyStyle": "Hatchback"
     },
     {
         "id": "2016-mazda-miata",
@@ -351,7 +390,8 @@
         "costOfOwnership": 8.4,
         "insuranceAffordability": 8.5,
         "fuelEfficiency": 8.7,
-        "performance": 8.8
+        "performance": 8.8,
+        "bodyStyle": "Convertible"
     },
     {
         "id": "2017-hyundai-elantra-gt",
@@ -360,7 +400,8 @@
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.6,
         "fuelEfficiency": 8.3,
-        "performance": 7.2
+        "performance": 7.2,
+        "bodyStyle": "Hatchback"
     },
     {
         "id": "2017-kia-optima",
@@ -369,7 +410,8 @@
         "costOfOwnership": 8.3,
         "insuranceAffordability": 8.4,
         "fuelEfficiency": 8.0,
-        "performance": 7.0
+        "performance": 7.0,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-toyota-86",
@@ -378,7 +420,8 @@
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.7,
         "fuelEfficiency": 8.0,
-        "performance": 8.5
+        "performance": 8.5,
+        "bodyStyle": "Coupe"
     },
     {
         "id": "2017-honda-hrv",
@@ -387,7 +430,8 @@
         "costOfOwnership": 8.6,
         "insuranceAffordability": 8.7,
         "fuelEfficiency": 8.4,
-        "performance": 6.3
+        "performance": 6.3,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2017-subaru-outback",
@@ -396,7 +440,8 @@
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.0,
         "fuelEfficiency": 7.5,
-        "performance": 6.8
+        "performance": 6.8,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2016-ford-fusion",
@@ -405,7 +450,8 @@
         "costOfOwnership": 7.9,
         "insuranceAffordability": 7.8,
         "fuelEfficiency": 8.0,
-        "performance": 7.0
+        "performance": 7.0,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2016-chevy-malibu",
@@ -414,7 +460,8 @@
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.1,
         "fuelEfficiency": 8.2,
-        "performance": 6.8
+        "performance": 6.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-lexus-is300",
@@ -423,7 +470,8 @@
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.0,
         "fuelEfficiency": 7.2,
-        "performance": 7.8
+        "performance": 7.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-acura-tlx",
@@ -432,7 +480,8 @@
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.6,
         "fuelEfficiency": 7.5,
-        "performance": 7.6
+        "performance": 7.6,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2016-infiniti-q50",
@@ -441,7 +490,8 @@
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
         "fuelEfficiency": 7.0,
-        "performance": 8.2
+        "performance": 8.2,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-bmw-340i",
@@ -450,7 +500,8 @@
         "costOfOwnership": 6.5,
         "insuranceAffordability": 6.0,
         "fuelEfficiency": 7.2,
-        "performance": 9.0
+        "performance": 9.0,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-audi-a4",
@@ -459,7 +510,8 @@
         "costOfOwnership": 6.8,
         "insuranceAffordability": 6.8,
         "fuelEfficiency": 7.8,
-        "performance": 7.8
+        "performance": 7.8,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2017-mercedes-c300",
@@ -468,7 +520,8 @@
         "costOfOwnership": 6.7,
         "insuranceAffordability": 6.5,
         "fuelEfficiency": 7.5,
-        "performance": 7.7
+        "performance": 7.7,
+        "bodyStyle": "Sedan"
     },
     {
         "id": "2016-jeep-grand-cherokee",
@@ -477,7 +530,8 @@
         "costOfOwnership": 7.0,
         "insuranceAffordability": 6.8,
         "fuelEfficiency": 6.5,
-        "performance": 7.5
+        "performance": 7.5,
+        "bodyStyle": "SUV"
     },
     {
         "id": "2016-ford-explorer",
@@ -486,6 +540,7 @@
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
         "fuelEfficiency": 6.6,
-        "performance": 7.3
+        "performance": 7.3,
+        "bodyStyle": "SUV"
     }
 ]
