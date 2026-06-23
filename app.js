@@ -1,98 +1,104 @@
 const categories = [
     { key: 'reliability', label: 'Reliability' },
     { key: 'costOfOwnership', label: 'Cost of Ownership' },
-    { key: 'insuranceAffordability', label: 'Insurance Affordability' },
-    { key: 'fuelEfficiency', label: 'Fuel Efficiency' },
+    { key: 'insuranceAffordability', label: 'Insurance' },
+    { key: 'fuelEfficiency', label: 'Fuel' },
     { key: 'performance', label: 'Performance' }
 ];
 
-const state = {
-    values: {
-        reliability: 35,
-        costOfOwnership: 25,
-        insuranceAffordability: 20,
-        fuelEfficiency: 15,
-        performance: 5
-    },
-    locked: {
-        reliability: false,
-        costOfOwnership: false,
-        insuranceAffordability: false,
-        fuelEfficiency: false,
-        performance: false
-    }
+const sliders = {
+    reliability: document.querySelector('#reliability-slider'),
+    costOfOwnership: document.querySelector('#cost-slider'),
+    insuranceAffordability: document.querySelector('#insurance-slider'),
+    fuelEfficiency: document.querySelector('#fuel-slider'),
+    performance: document.querySelector('#performance-slider')
 };
 
-const sliders = {};
-const labels = {};
+const values = {
+    reliability: document.querySelector('#reliability-value'),
+    costOfOwnership: document.querySelector('#cost-value'),
+    insuranceAffordability: document.querySelector('#insurance-value'),
+    fuelEfficiency: document.querySelector('#fuel-value'),
+    performance: document.querySelector('#performance-value')
+};
 
-// bind DOM
-categories.forEach(c => {
-    sliders[c.key] = document.querySelector(`#${c.key}-slider`);
-    labels[c.key] = document.querySelector(`#${c.key}-value`);
-});
+// weights stored as 0–100 integers
+let weights = {
+    reliability: 35,
+    costOfOwnership: 25,
+    insuranceAffordability: 20,
+    fuelEfficiency: 15,
+    performance: 5
+};
 
-// core normalization (SAFE VERSION)
-function normalize(activeKey, newValue) {
-    newValue = Math.max(1, Math.min(100, newValue));
+let locked = new Set();
 
-    state.values[activeKey] = newValue;
-
-    const locked = categories.filter(c => state.locked[c.key] && c.key !== activeKey);
-    const unlocked = categories.filter(c => !state.locked[c.key] && c.key !== activeKey);
-
-    const lockedSum = locked.reduce((s, c) => s + state.values[c.key], 0);
-
-    let remaining = 100 - lockedSum - newValue;
-
-    if (unlocked.length === 0) {
-        state.values[activeKey] = Math.max(1, 100 - lockedSum);
-        return;
-    }
-
-    const currentUnlockedSum = unlocked.reduce((s, c) => s + state.values[c.key], 0);
-
-    unlocked.forEach(c => {
-        const share = state.values[c.key] / (currentUnlockedSum || 1);
-        state.values[c.key] = Math.max(1, Math.round(share * remaining));
-    });
-
-    // FINAL FIX: force exact 100 sum (no drift, no negatives)
-    let total = categories.reduce((s, c) => s + state.values[c.key], 0);
-    let diff = 100 - total;
-
-    // apply correction safely
-    const firstUnlocked = unlocked[0] || categories.find(c => !state.locked[c.key]);
-
-    if (firstUnlocked) {
-        state.values[firstUnlocked.key] += diff;
-    }
+function sumWeights() {
+    return Object.values(weights).reduce((a, b) => a + b, 0);
 }
 
-// UI render
-function render() {
+// normalize everything except dragged category + locked ones
+function normalize(changedKey) {
+    const total = sumWeights();
+
+    if (total === 100) return;
+
+    const diff = 100 - total;
+
+    const keys = categories
+        .map(c => c.key)
+        .filter(k => k !== changedKey && !locked.has(k));
+
+    if (keys.length === 0) return;
+
+    let distribute = diff / keys.length;
+
+    keys.forEach(k => {
+        weights[k] = Math.max(1, weights[k] + distribute);
+    });
+
+    // final clamp + fix rounding drift
+    let fix = 100 - sumWeights();
+    weights[keys[0]] += fix;
+}
+
+function updateUI() {
     categories.forEach(c => {
-        const val = state.values[c.key];
+        const val = Math.round(weights[c.key]);
 
         sliders[c.key].value = val;
-        labels[c.key].textContent = val;
+        values[c.key].textContent = val + '%';
     });
 }
 
-// events
-categories.forEach(c => {
-    sliders[c.key].addEventListener('input', (e) => {
-        normalize(c.key, Number(e.target.value));
-        render();
+function onSlide(key, value) {
+    weights[key] = Number(value);
+
+    normalize(key);
+    updateUI();
+}
+
+// attach events
+Object.entries(sliders).forEach(([key, slider]) => {
+    slider.addEventListener('input', (e) => {
+        onSlide(key, e.target.value);
     });
+});
 
-    labels[c.key].style.cursor = "pointer";
+// click label to lock/unlock
+categories.forEach(c => {
+    const label = values[c.key].parentElement;
 
-    labels[c.key].addEventListener('click', () => {
-        state.locked[c.key] = !state.locked[c.key];
-        labels[c.key].style.opacity = state.locked[c.key] ? 0.4 : 1;
+    label.addEventListener('click', () => {
+        if (locked.has(c.key)) {
+            locked.delete(c.key);
+            label.style.opacity = 1;
+        } else {
+            locked.add(c.key);
+            label.style.opacity = 0.5;
+        }
     });
 });
 
 // init
-render();
+updateUI();
