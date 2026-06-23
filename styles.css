@@ -361,11 +361,13 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.slider-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+.slider-group input[type="range"] {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 30px;
+    height: 220px;
+    accent-color: var(--accent);
+    cursor: pointer;
 }
 
     .slider-group label {
