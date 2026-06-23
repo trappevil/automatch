@@ -87,7 +87,25 @@ const insuranceValue = document.querySelector('#insurance-value');
 const fuelValue = document.querySelector('#fuel-value');
 const performanceValue = document.querySelector('#performance-value');
 
-let lastChanged = null;
+const lockedWeights = {
+    reliability: false,
+    cost: false,
+    insurance: false,
+    fuel: false,
+    performance: false
+};
+
+document.querySelectorAll('.lock-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const key = btn.dataset.slider;
+
+        lockedWeights[key] = !lockedWeights[key];
+
+        btn.textContent = lockedWeights[key] ? '🔒' : '🔓';
+
+        btn.classList.toggle('locked', lockedWeights[key]);
+    });
+});
 
 /* ---------------- VIEW SWITCH ---------------- */
 
@@ -101,28 +119,56 @@ function showView(v) {
 function normalize(changedKey) {
     const keys = Object.keys(state.sliders);
 
-    let total = 0;
-    keys.forEach(k => total += state.sliders[k]);
+    const unlocked = keys.filter(
+        k => !lockedWeights[k] && k !== changedKey
+    );
 
-    if (total === 100) return;
+    if (unlocked.length === 0) {
+        updateSlidersUI();
+        return;
+    }
 
-    const diff = 100 - total;
+    let lockedTotal = 0;
 
-    const others = keys.filter(k => k !== changedKey);
-
-    if (others.length === 0) return;
-
-    let per = diff / others.length;
-
-    others.forEach(k => {
-        state.sliders[k] = Math.max(1, state.sliders[k] + per);
+    keys.forEach(key => {
+        if (lockedWeights[key]) {
+            lockedTotal += state.sliders[key];
+        }
     });
 
-    let newTotal = 0;
-    keys.forEach(k => newTotal += state.sliders[k]);
+    const changedValue = state.sliders[changedKey];
 
-    const correction = 100 - newTotal;
-    state.sliders[changedKey] += correction;
+    let remaining = 100 - lockedTotal - changedValue;
+
+    if (remaining < 0) remaining = 0;
+
+    let unlockedTotal = 0;
+
+    unlocked.forEach(key => {
+        unlockedTotal += state.sliders[key];
+    });
+
+    if (unlockedTotal <= 0) {
+        const even = Math.floor((remaining / unlocked.length) / 5) * 5;
+
+        unlocked.forEach(key => {
+            state.sliders[key] = even;
+        });
+    } else {
+        unlocked.forEach(key => {
+            const ratio = state.sliders[key] / unlockedTotal;
+            state.sliders[key] = Math.round((remaining * ratio) / 5) * 5;
+        });
+    }
+
+    let total = 0;
+    keys.forEach(key => total += state.sliders[key]);
+
+    const correction = 100 - total;
+
+    if (unlocked.length > 0) {
+        state.sliders[unlocked[0]] += correction;
+    }
 }
 
 /* ---------------- UPDATE UI ---------------- */
