@@ -224,13 +224,22 @@ function render() {
 /* ---------------- EVENTS ---------------- */
 
 profileSelect.addEventListener('change', e => {
+
     state.selectedProfileKey = e.target.value;
 
     if (e.target.value === 'custom') {
+
         customProfile.classList.remove('hidden');
+
     } else {
+
         customProfile.classList.add('hidden');
+
+        // immediately go to rankings
+        render();
+
     }
+
 });
 
 profileForm.addEventListener('submit', e => {
