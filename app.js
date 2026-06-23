@@ -87,25 +87,31 @@ const insuranceValue = document.querySelector('#insurance-value');
 const fuelValue = document.querySelector('#fuel-value');
 const performanceValue = document.querySelector('#performance-value');
 
-const lockedWeights = {
-    reliability: false,
-    cost: false,
-    insurance: false,
-    fuel: false,
-    performance: false
-};
+function initLocks() {
+    const lockedWeights = {
+        reliability: false,
+        cost: false,
+        insurance: false,
+        fuel: false,
+        performance: false
+    };
 
-document.querySelectorAll('.lock-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const key = btn.dataset.slider;
+    document.querySelectorAll('.lock-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
 
-        lockedWeights[key] = !lockedWeights[key];
+            const key = btn.dataset.slider;
 
-        btn.textContent = lockedWeights[key] ? '🔒' : '🔓';
+            if (!key) return; // safety check
 
-        btn.classList.toggle('locked', lockedWeights[key]);
+            lockedWeights[key] = !lockedWeights[key];
+
+            btn.textContent = lockedWeights[key] ? '🔒' : '🔓';
+        });
     });
-});
+
+    // expose if normalize needs it later
+    window.lockedWeights = lockedWeights;
+}
 
 /* ---------------- VIEW SWITCH ---------------- */
 
@@ -190,6 +196,8 @@ function updateSlidersUI() {
 /* ---------------- SLIDER HANDLER ---------------- */
 
 function handleSlider(key, value) {
+    if (window.lockedWeights?.[key]) return;
+
     state.sliders[key] = Number(value);
 
     normalize(key);
@@ -328,3 +336,7 @@ async function loadCars() {
 
 loadCars();
 updateSlidersUI();
+
+window.addEventListener('DOMContentLoaded', () => {
+    initLocks();
+});
