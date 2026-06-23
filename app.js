@@ -71,19 +71,22 @@ const errorMessage = document.querySelector('#error-message');
 const filterBody = document.querySelector('#filter-body');
 const customProfileSection = document.querySelector('#custom-profile');
 
-const reliabilitySlider = document.querySelector('#reliability-slider');
-const costSlider = document.querySelector('#cost-slider');
-const insuranceSlider = document.querySelector('#insurance-slider');
-const fuelSlider = document.querySelector('#fuel-slider');
-const performanceSlider = document.querySelector('#performance-slider');
+// sliders
+const sliders = {
+    reliability: document.querySelector('#reliability-slider'),
+    costOfOwnership: document.querySelector('#cost-slider'),
+    insuranceAffordability: document.querySelector('#insurance-slider'),
+    fuelEfficiency: document.querySelector('#fuel-slider'),
+    performance: document.querySelector('#performance-slider')
+};
 
-const sliders = [
-    { el: reliabilitySlider, key: 'reliability' },
-    { el: costSlider, key: 'costOfOwnership' },
-    { el: insuranceSlider, key: 'insuranceAffordability' },
-    { el: fuelSlider, key: 'fuelEfficiency' },
-    { el: performanceSlider, key: 'performance' }
-];
+const labels = {
+    reliability: document.querySelector('#reliability-value'),
+    costOfOwnership: document.querySelector('#cost-value'),
+    insuranceAffordability: document.querySelector('#insurance-value'),
+    fuelEfficiency: document.querySelector('#fuel-value'),
+    performance: document.querySelector('#performance-value')
+};
 
 function showView(name) {
     Object.values(views).forEach(v => v.classList.add('hidden'));
@@ -100,19 +103,80 @@ function calculateScore(car, profile) {
     }, 0);
 }
 
+/* -----------------------------
+   AUTO-NORMALIZING SLIDERS
+------------------------------*/
+
+let isUpdating = false;
+
+function normalizeSliders(changedKey) {
+    if (isUpdating) return;
+    isUpdating = true;
+
+    const keys = Object.keys(sliders);
+
+    let values = {};
+    let total = 0;
+
+    keys.forEach(k => {
+        values[k] = Number(sliders[k].value);
+        total += values[k];
+    });
+
+    if (total === 0) {
+        isUpdating = false;
+        return;
+    }
+
+    const diff = total - 100;
+
+    const others = keys.filter(k => k !== changedKey);
+
+    let remainingDiff = diff;
+
+    others.forEach((k, i) => {
+        let adjust = remainingDiff / (others.length - i);
+        let newVal = values[k] - adjust;
+
+        newVal = Math.max(1, Math.min(100, newVal));
+
+        sliders[k].value = newVal;
+        values[k] = newVal;
+
+        remainingDiff -= adjust;
+    });
+
+    let correctedTotal = 0;
+    keys.forEach(k => correctedTotal += Number(sliders[k].value));
+
+    const correction = 100 - correctedTotal;
+    sliders[changedKey].value =
+        Math.max(1, Math.min(100, Number(sliders[changedKey].value) + correction));
+
+    updateSliderUI();
+
+    isUpdating = false;
+}
+
+function updateSliderUI() {
+    Object.keys(sliders).forEach(k => {
+        labels[k].textContent = Math.round(sliders[k].value);
+    });
+}
+
+/* ----------------------------- */
+
 function getCustomProfile() {
-    const values = sliders.map(s => Number(s.el.value));
-    const total = values.reduce((a, b) => a + b, 0) || 1;
+    const weights = {};
 
-    const weights = {
-        reliability: values[0] / total,
-        costOfOwnership: values[1] / total,
-        insuranceAffordability: values[2] / total,
-        fuelEfficiency: values[3] / total,
-        performance: values[4] / total
+    Object.keys(sliders).forEach(k => {
+        weights[k] = Number(sliders[k].value) / 100;
+    });
+
+    return {
+        label: 'Custom',
+        weights
     };
-
-    return { label: 'Custom', weights };
 }
 
 function getStrongestReasons(car, profile) {
@@ -131,11 +195,11 @@ function renderProfileSummary(profile) {
     profileSummary.innerHTML = categories.map(c => {
         const weightPercent = Math.round((profile.weights[c.key] || 0) * 100);
         return `
-            <div class="weight-pill">
-                <span>${c.label}</span>
-                <strong>${weightPercent}%</strong>
-            </div>
-        `;
+      <div class="weight-pill">
+        <span>${c.label}</span>
+        <strong>${weightPercent}%</strong>
+      </div>
+    `;
     }).join('');
 }
 
@@ -182,15 +246,15 @@ function renderRankings() {
     renderProfileSummary(profile);
 
     rankingsList.innerHTML = state.rankedCars.map(car => `
-        <button class="ranking-row" type="button" data-car-id="${car.id}">
-            <span class="rank">#${car.rank}</span>
-            <span>
-                <span class="car-name">${car.name}</span>
-                <span class="car-meta">View category scores and ranking reason</span>
-            </span>
-            <span class="final-score">${formatScore(car.finalScore)}</span>
-        </button>
-    `).join('');
+    <button class="ranking-row" type="button" data-car-id="${car.id}">
+      <span class="rank">#${car.rank}</span>
+      <span>
+        <span class="car-name">${car.name}</span>
+        <span class="car-meta">View category scores and ranking reason</span>
+      </span>
+      <span class="final-score">${formatScore(car.finalScore)}</span>
+    </button>
+  `).join('');
 
     showView('results');
 }
@@ -205,14 +269,13 @@ function renderDetails(carId) {
     if (!car) return renderRankings();
 
     const rank = car.rank;
-
     const reasons = getStrongestReasons(car, profile);
 
     const top = reasons[0]?.label?.toLowerCase() || "key factors";
     const second = reasons[1]?.label?.toLowerCase() || "overall balance";
 
     const reasonText = reasons.map(r =>
-        `${r.label}: ${r.weightedValue.toFixed(2)} (weight ${(r.weight * 100).toFixed(0)}%)`
+        `${r.label}: ${r.weightedValue.toFixed(2)}`
     ).join(' | ');
 
     detailsTitle.textContent = car.name;
@@ -220,23 +283,23 @@ function renderDetails(carId) {
     detailsRankNote.textContent = `${car.name} ranked #${rank} for the ${profile.label} profile.`;
 
     detailsWhy.textContent =
-        `This car ranked highly because ${profile.label} prioritizes ${top} and ${second}, where ${car.name} performed well across ${reasonText}.`;
+        `This car performed best in ${top} and ${second}. (${reasonText})`;
 
     categoryScores.innerHTML = categories.map(c => {
         const score = car[c.key] || 0;
         const weightPercent = Math.round((profile.weights[c.key] || 0) * 100);
 
         return `
-            <div class="category-row">
-                <div class="category-topline">
-                    <span>${c.label}</span>
-                    <span>${score} / 10 | weight ${weightPercent}%</span>
-                </div>
-                <div class="bar-track">
-                    <div class="bar-fill" style="width:${score * 10}%"></div>
-                </div>
-            </div>
-        `;
+      <div class="category-row">
+        <div class="category-topline">
+          <span>${c.label}</span>
+          <span>${score} / 10 | weight ${weightPercent}%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${score * 10}%"></div>
+        </div>
+      </div>
+    `;
     }).join('');
 
     showView('details');
@@ -245,10 +308,9 @@ function renderDetails(carId) {
 async function loadCars() {
     try {
         const res = await fetch('cars.json');
-        if (!res.ok) throw new Error();
         state.cars = await res.json();
     } catch {
-        errorMessage.textContent = 'Car data failed to load.';
+        errorMessage.textContent = "Failed to load cars.json";
         showView('error');
     }
 }
@@ -258,6 +320,11 @@ async function loadCars() {
 profileForm.addEventListener('submit', e => {
     e.preventDefault();
     state.selectedProfileKey = profileSelect.value;
+    renderRankings();
+});
+
+profileSelect.addEventListener('change', () => {
+    customProfileSection.classList.toggle('hidden', profileSelect.value !== 'custom');
     renderRankings();
 });
 
@@ -276,44 +343,23 @@ filterBody.addEventListener('change', e => {
     renderRankings();
 });
 
-profileSelect.addEventListener('change', () => {
-    customProfileSection.classList.toggle('hidden', profileSelect.value !== 'custom');
-    renderRankings();
-});
+/* SLIDERS */
 
-/* SLIDERS (LIVE NORMALIZED) */
-
-function updateSliders() {
-    const values = sliders.map(s => Number(s.el.value));
-    const total = values.reduce((a, b) => a + b, 0) || 1;
-
-    sliders.forEach((s, i) => {
-        const percent = Math.round((values[i] / total) * 100);
-        const label = document.querySelector(`#${s.key.replace('costOfOwnership','cost')
-            .replace('insuranceAffordability','insurance')
-            .replace('fuelEfficiency','fuel')}-value`);
-
-        if (label) label.textContent = percent;
-    });
-}
-
-sliders.forEach(s => {
-    s.el.addEventListener('input', () => {
-        updateSliders();
+Object.keys(sliders).forEach(key => {
+    sliders[key].addEventListener('input', () => {
+        normalizeSliders(key);
         if (state.selectedProfileKey === 'custom') renderRankings();
     });
 });
 
-updateSliders();
-
-/* NAV */
-
 document.querySelector('#back-home').addEventListener('click', () => showView('home'));
 document.querySelector('#back-results').addEventListener('click', () => showView('results'));
 
-sortSelect.addEventListener('change', e => {
-    state.sortMode = e.target.value;
-    renderRankings();
-});
+if (sortSelect) {
+    sortSelect.addEventListener('change', e => {
+        state.sortMode = e.target.value;
+        renderRankings();
+    });
+}
 
 loadCars();
