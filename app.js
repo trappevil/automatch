@@ -1,54 +1,59 @@
+const categories = [
+    { key: 'reliability', label: 'Reliability' },
+    { key: 'costOfOwnership', label: 'Cost of Ownership' },
+    { key: 'insuranceAffordability', label: 'Insurance' },
+    { key: 'fuelEfficiency', label: 'Fuel Efficiency' },
+    { key: 'performance', label: 'Performance' }
+];
+
 const profiles = {
     firstTimeBuyer: {
         label: 'First-Time Buyer',
         weights: {
-            reliability: 35,
-            costOfOwnership: 25,
-            insuranceAffordability: 20,
-            fuelEfficiency: 15,
-            performance: 5
+            reliability: 0.35,
+            costOfOwnership: 0.25,
+            insuranceAffordability: 0.2,
+            fuelEfficiency: 0.15,
+            performance: 0.05
         }
     },
     enthusiast: {
         label: 'Enthusiast',
         weights: {
-            reliability: 15,
-            costOfOwnership: 10,
-            insuranceAffordability: 10,
-            fuelEfficiency: 5,
-            performance: 60
+            reliability: 0.15,
+            costOfOwnership: 0.1,
+            insuranceAffordability: 0.1,
+            fuelEfficiency: 0.05,
+            performance: 0.6
         }
     },
     dailyCommuter: {
         label: 'Daily Commuter',
         weights: {
-            reliability: 30,
-            costOfOwnership: 25,
-            insuranceAffordability: 15,
-            fuelEfficiency: 25,
-            performance: 5
+            reliability: 0.3,
+            costOfOwnership: 0.25,
+            insuranceAffordability: 0.15,
+            fuelEfficiency: 0.25,
+            performance: 0.05
         }
     }
 };
 
-const categories = [
-    { key: 'reliability', label: 'Reliability' },
-    { key: 'costOfOwnership', label: 'Cost of Ownership' },
-    { key: 'insuranceAffordability', label: 'Insurance Affordability' },
-    { key: 'fuelEfficiency', label: 'Fuel Efficiency' },
-    { key: 'performance', label: 'Performance' }
-];
-
 const state = {
     cars: [],
-    selectedProfileKey: 'firstTimeBuyer',
     rankedCars: [],
+    selectedProfileKey: 'firstTimeBuyer',
     searchTerm: '',
     sortMode: 'bestMatch',
-    bodyFilter: 'all'
+    bodyFilter: 'all',
+    sliders: {
+        reliability: 35,
+        cost: 25,
+        insurance: 20,
+        fuel: 15,
+        performance: 5
+    }
 };
-
-/* ---------------- DOM ---------------- */
 
 const views = {
     home: document.querySelector('#home-view'),
@@ -57,168 +62,159 @@ const views = {
     error: document.querySelector('#error-view')
 };
 
-const profileForm = document.querySelector('#profile-form');
 const profileSelect = document.querySelector('#profile-select');
+const profileForm = document.querySelector('#profile-form');
+
 const rankingsList = document.querySelector('#rankings-list');
 const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort-select');
-const profileSummary = document.querySelector('#profile-summary');
+const filterBody = document.querySelector('#filter-body');
+
+const customProfile = document.querySelector('#custom-profile');
+
+const summary = document.querySelector('#profile-summary');
 const resultsTitle = document.querySelector('#results-title');
 
-const filterBody = document.querySelector('#filter-body');
-const customProfileSection = document.querySelector('#custom-profile');
+const reliabilitySlider = document.querySelector('#reliability-slider');
+const costSlider = document.querySelector('#cost-slider');
+const insuranceSlider = document.querySelector('#insurance-slider');
+const fuelSlider = document.querySelector('#fuel-slider');
+const performanceSlider = document.querySelector('#performance-slider');
 
-/* sliders */
-const sliders = {
-    reliability: document.querySelector('#reliability-slider'),
-    costOfOwnership: document.querySelector('#cost-slider'),
-    insuranceAffordability: document.querySelector('#insurance-slider'),
-    fuelEfficiency: document.querySelector('#fuel-slider'),
-    performance: document.querySelector('#performance-slider')
-};
+const reliabilityValue = document.querySelector('#reliability-value');
+const costValue = document.querySelector('#cost-value');
+const insuranceValue = document.querySelector('#insurance-value');
+const fuelValue = document.querySelector('#fuel-value');
+const performanceValue = document.querySelector('#performance-value');
 
-const labels = {
-    reliability: document.querySelector('#reliability-value'),
-    costOfOwnership: document.querySelector('#cost-value'),
-    insuranceAffordability: document.querySelector('#insurance-value'),
-    fuelEfficiency: document.querySelector('#fuel-value'),
-    performance: document.querySelector('#performance-value')
-};
+let lastChanged = null;
 
-/* ---------------- WEIGHT ENGINE ---------------- */
+/* ---------------- VIEW SWITCH ---------------- */
 
-const lockState = {};
-const weights = {
-    reliability: 35,
-    costOfOwnership: 25,
-    insuranceAffordability: 20,
-    fuelEfficiency: 15,
-    performance: 5
-};
-
-function totalUnlocked(exceptKey = null) {
-    let sum = 0;
-    for (const k of Object.keys(weights)) {
-        if (!lockState[k] && k !== exceptKey) sum += weights[k];
-    }
-    return sum;
+function showView(v) {
+    Object.values(views).forEach(x => x.classList.add('hidden'));
+    views[v].classList.remove('hidden');
 }
 
-function normalizeWeights(changedKey) {
-    const lockedTotal = Object.keys(weights)
-        .filter(k => lockState[k])
-        .reduce((a, k) => a + weights[k], 0);
+/* ---------------- NORMALIZE SLIDERS ---------------- */
 
-    const remaining = 100 - lockedTotal;
+function normalize(changedKey) {
+    const keys = Object.keys(state.sliders);
 
-    const freeKeys = Object.keys(weights).filter(k => !lockState[k]);
+    let total = 0;
+    keys.forEach(k => total += state.sliders[k]);
 
-    let freeSum = freeKeys.reduce((a, k) => a + weights[k], 0);
+    if (total === 100) return;
 
-    if (freeSum <= 0) {
-        const equal = remaining / freeKeys.length;
-        freeKeys.forEach(k => weights[k] = equal);
-        return;
-    }
+    const diff = 100 - total;
 
-    freeKeys.forEach(k => {
-        weights[k] = (weights[k] / freeSum) * remaining;
-    });
-}
+    const others = keys.filter(k => k !== changedKey);
 
-function setSliderUI(key) {
-    const val = weights[key];
+    if (others.length === 0) return;
 
-    sliders[key].value = val;
-    labels[key].textContent = Math.round(val);
+    let per = diff / others.length;
 
-    sliders[key].style.setProperty('--pct', `${val}%`);
-}
-
-/* ---------------- LIVE SLIDER SYSTEM ---------------- */
-
-function updateFromSlider(key, rawValue) {
-    if (lockState[key]) return;
-
-    weights[key] = Number(rawValue);
-
-    normalizeWeights(key);
-
-    for (const k of Object.keys(weights)) {
-        setSliderUI(k);
-    }
-
-    if (state.selectedProfileKey === 'custom') {
-        renderRankings();
-    }
-}
-
-/* ---------------- INIT SLIDERS ---------------- */
-
-Object.keys(sliders).forEach(key => {
-    sliders[key].addEventListener('input', e => {
-        updateFromSlider(key, e.target.value);
+    others.forEach(k => {
+        state.sliders[k] = Math.max(1, state.sliders[k] + per);
     });
 
-    /* click label = toggle lock */
-    labels[key].parentElement.addEventListener('click', () => {
-        lockState[key] = !lockState[key];
-        labels[key].parentElement.classList.toggle('locked', lockState[key]);
-    });
-});
+    let newTotal = 0;
+    keys.forEach(k => newTotal += state.sliders[k]);
 
-/* ---------------- CORE APP ---------------- */
-
-function showView(name) {
-    Object.values(views).forEach(v => v.classList.add('hidden'));
-    views[name].classList.remove('hidden');
+    const correction = 100 - newTotal;
+    state.sliders[changedKey] += correction;
 }
 
-function calculateScore(car, profile) {
+/* ---------------- UPDATE UI ---------------- */
+
+function updateSlidersUI() {
+    reliabilitySlider.value = state.sliders.reliability;
+    costSlider.value = state.sliders.cost;
+    insuranceSlider.value = state.sliders.insurance;
+    fuelSlider.value = state.sliders.fuel;
+    performanceSlider.value = state.sliders.performance;
+
+    reliabilityValue.textContent = Math.round(state.sliders.reliability);
+    costValue.textContent = Math.round(state.sliders.cost);
+    insuranceValue.textContent = Math.round(state.sliders.insurance);
+    fuelValue.textContent = Math.round(state.sliders.fuel);
+    performanceValue.textContent = Math.round(state.sliders.performance);
+}
+
+/* ---------------- SLIDER HANDLER ---------------- */
+
+function handleSlider(key, value) {
+    state.sliders[key] = Number(value);
+
+    normalize(key);
+
+    updateSlidersUI();
+}
+
+/* ---------------- SCORE ---------------- */
+
+function scoreCar(car, profile) {
     return categories.reduce((sum, c) => {
         return sum + (car[c.key] || 0) * profile.weights[c.key];
     }, 0);
 }
 
-function getProfile() {
-    if (state.selectedProfileKey !== 'custom') {
-        return profiles[state.selectedProfileKey];
-    }
+/* ---------------- CUSTOM PROFILE ---------------- */
+
+function getCustomProfile() {
+    const s = state.sliders;
 
     return {
         label: 'Custom',
-        weights: { ...weights }
+        weights: {
+            reliability: s.reliability / 100,
+            costOfOwnership: s.cost / 100,
+            insuranceAffordability: s.insurance / 100,
+            fuelEfficiency: s.fuel / 100,
+            performance: s.performance / 100
+        }
     };
 }
 
 /* ---------------- RENDER ---------------- */
 
-function renderRankings() {
-    const profile = getProfile();
+function render() {
+    const profile =
+        state.selectedProfileKey === 'custom'
+            ? getCustomProfile()
+            : profiles[state.selectedProfileKey];
 
-    let cars = state.cars.map(car => ({
-        ...car,
-        finalScore: calculateScore(car, profile)
+    let cars = state.cars.map(c => ({
+        ...c,
+        finalScore: scoreCar(c, profile)
     }));
 
-    const search = (state.searchTerm || '').toLowerCase();
+    const search = state.searchTerm.toLowerCase().trim();
 
-    cars = cars.filter(car =>
-        (!search || car.name.toLowerCase().includes(search)) &&
-        (state.bodyFilter === 'all' || car.bodyStyle === state.bodyFilter)
+    cars = cars.filter(c =>
+        (!search || c.name.toLowerCase().includes(search)) &&
+        (state.bodyFilter === 'all' || c.bodyStyle === state.bodyFilter)
     );
 
     cars.sort((a, b) => b.finalScore - a.finalScore);
 
-    state.rankedCars = cars.map((c, i) => ({ ...c, rank: i + 1 }));
+    state.rankedCars = cars.map((c, i) => ({
+        ...c,
+        rank: i + 1
+    }));
 
-    resultsTitle.textContent = `${profile.label} Rankings`;
+    resultsTitle.textContent = profile.label + ' Rankings';
 
-    rankingsList.innerHTML = state.rankedCars.map(car => `
-        <button class="ranking-row" data-id="${car.id}">
-            <span class="rank">#${car.rank}</span>
-            <span>${car.name}</span>
-            <span class="final-score">${car.finalScore.toFixed(1)}</span>
+    summary.innerHTML = categories.map(c => {
+        const w = profile.weights[c.key] * 100;
+        return `<div><b>${c.label}</b><br>${w.toFixed(0)}%</div>`;
+    }).join('');
+
+    rankingsList.innerHTML = state.rankedCars.map(c => `
+        <button class="ranking-row" data-id="${c.id}">
+            <span>#${c.rank}</span>
+            <span>${c.name}</span>
+            <span>${c.finalScore.toFixed(1)}</span>
         </button>
     `).join('');
 
@@ -227,64 +223,53 @@ function renderRankings() {
 
 /* ---------------- EVENTS ---------------- */
 
+profileSelect.addEventListener('change', e => {
+    state.selectedProfileKey = e.target.value;
+
+    if (e.target.value === 'custom') {
+        customProfile.classList.remove('hidden');
+    } else {
+        customProfile.classList.add('hidden');
+    }
+});
+
 profileForm.addEventListener('submit', e => {
     e.preventDefault();
-
-    state.selectedProfileKey = profileSelect.value;
-
-    if (profileSelect.value === 'custom') {
-        showView('home'); // stay in editor
-        return;
-    }
-
-    renderRankings();
-});
-
-profileSelect.addEventListener('change', () => {
-    if (profileSelect.value === 'custom') {
-        customProfileSection.classList.remove('hidden');
-        showView('home');
-    } else {
-        customProfileSection.classList.add('hidden');
-    }
-});
-
-rankingsList.addEventListener('click', e => {
-    const row = e.target.closest('[data-id]');
-    if (!row) return;
-    console.log("clicked car:", row.dataset.id);
+    render();
 });
 
 searchInput.addEventListener('input', e => {
     state.searchTerm = e.target.value;
-    renderRankings();
+    render();
 });
 
 filterBody.addEventListener('change', e => {
     state.bodyFilter = e.target.value;
-    renderRankings();
+    render();
 });
 
-/* sort */
 sortSelect.addEventListener('change', e => {
     state.sortMode = e.target.value;
-    renderRankings();
+    render();
 });
+
+/* sliders */
+reliabilitySlider.addEventListener('input', e => handleSlider('reliability', e.target.value));
+costSlider.addEventListener('input', e => handleSlider('cost', e.target.value));
+insuranceSlider.addEventListener('input', e => handleSlider('insurance', e.target.value));
+fuelSlider.addEventListener('input', e => handleSlider('fuel', e.target.value));
+performanceSlider.addEventListener('input', e => handleSlider('performance', e.target.value));
+
+/* navigation fix */
+document.querySelector('#back-home')?.addEventListener('click', () => showView('home'));
+document.querySelector('#back-results')?.addEventListener('click', () => showView('results'));
 
 /* ---------------- LOAD ---------------- */
 
 async function loadCars() {
-    try {
-        const res = await fetch('cars.json');
-        state.cars = await res.json();
-    } catch {
-        showView('error');
-    }
-}
-
-/* init sliders */
-for (const k of Object.keys(weights)) {
-    setSliderUI(k);
+    const res = await fetch('cars.json');
+    state.cars = await res.json();
 }
 
 loadCars();
+updateSlidersUI();
