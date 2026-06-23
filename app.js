@@ -100,12 +100,19 @@ function initLocks() {
         btn.addEventListener('click', () => {
 
             const key = btn.dataset.slider;
-
-            if (!key) return; // safety check
+            if (!key) return;
 
             lockedWeights[key] = !lockedWeights[key];
 
             btn.textContent = lockedWeights[key] ? '🔒' : '🔓';
+
+            const slider = document.querySelector(`#${key}-slider`);
+
+            if (slider) {
+                slider.disabled = lockedWeights[key];
+            }
+
+            btn.classList.toggle('locked', lockedWeights[key]);
         });
     });
 
