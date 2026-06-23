@@ -20,118 +20,77 @@ const state = {
         insuranceAffordability: false,
         fuelEfficiency: false,
         performance: false
-    },
-    activeDrag: null
-};
-
-// DOM
-const sliders = {
-    reliability: document.querySelector('#reliability-slider'),
-    costOfOwnership: document.querySelector('#cost-slider'),
-    insuranceAffordability: document.querySelector('#insurance-slider'),
-    fuelEfficiency: document.querySelector('#fuel-slider'),
-    performance: document.querySelector('#performance-slider')
-};
-
-const labels = {
-    reliability: document.querySelector('#reliability-value'),
-    costOfOwnership: document.querySelector('#cost-value'),
-    insuranceAffordability: document.querySelector('#insurance-value'),
-    fuelEfficiency: document.querySelector('#fuel-value'),
-    performance: document.querySelector('#performance-value')
-};
-
-// smooth animation (prevents jitter)
-function animateValue(el, from, to) {
-    const start = performance.now();
-    const duration = 180;
-
-    function frame(t) {
-        const p = Math.min((t - start) / duration, 1);
-        const val = from + (to - from) * p;
-        el.textContent = Math.round(val);
-        if (p < 1) requestAnimationFrame(frame);
     }
+};
 
-    requestAnimationFrame(frame);
-}
+const sliders = {};
+const labels = {};
 
-// normalize weights to 100
+// bind DOM
+categories.forEach(c => {
+    sliders[c.key] = document.querySelector(`#${c.key}-slider`);
+    labels[c.key] = document.querySelector(`#${c.key}-value`);
+});
+
+// core normalization (SAFE VERSION)
 function normalize(activeKey, newValue) {
+    newValue = Math.max(1, Math.min(100, newValue));
+
     state.values[activeKey] = newValue;
 
-    const lockedKeys = Object.keys(state.locked).filter(k => state.locked[k] && k !== activeKey);
-    const unlockedKeys = categories.map(c => c.key).filter(k => !state.locked[k] && k !== activeKey);
+    const locked = categories.filter(c => state.locked[c.key] && c.key !== activeKey);
+    const unlocked = categories.filter(c => !state.locked[c.key] && c.key !== activeKey);
 
-    const lockedSum = lockedKeys.reduce((sum, k) => sum + state.values[k], 0);
+    const lockedSum = locked.reduce((s, c) => s + state.values[c.key], 0);
 
-    const remaining = 100 - lockedSum - newValue;
+    let remaining = 100 - lockedSum - newValue;
 
-    if (unlockedKeys.length === 0) return;
+    if (unlocked.length === 0) {
+        state.values[activeKey] = Math.max(1, 100 - lockedSum);
+        return;
+    }
 
-    const totalUnlocked = unlockedKeys.reduce((sum, k) => sum + state.values[k], 0);
+    const currentUnlockedSum = unlocked.reduce((s, c) => s + state.values[c.key], 0);
 
-    unlockedKeys.forEach(k => {
-        const share = state.values[k] / (totalUnlocked || 1);
-        state.values[k] = Math.max(1, Math.round(share * remaining));
+    unlocked.forEach(c => {
+        const share = state.values[c.key] / (currentUnlockedSum || 1);
+        state.values[c.key] = Math.max(1, Math.round(share * remaining));
     });
 
-    // fix rounding drift
-    const total = Object.values(state.values).reduce((a, b) => a + b, 0);
-    const diff = 100 - total;
-    state.values[unlockedKeys[0]] += diff;
+    // FINAL FIX: force exact 100 sum (no drift, no negatives)
+    let total = categories.reduce((s, c) => s + state.values[c.key], 0);
+    let diff = 100 - total;
+
+    // apply correction safely
+    const firstUnlocked = unlocked[0] || categories.find(c => !state.locked[c.key]);
+
+    if (firstUnlocked) {
+        state.values[firstUnlocked.key] += diff;
+    }
 }
 
-// update UI
+// UI render
 function render() {
     categories.forEach(c => {
-        const v = state.values[c.key];
+        const val = state.values[c.key];
 
-        const slider = sliders[c.key];
-        const label = labels[c.key];
-
-        if (!slider) return;
-
-        if (!slider.matches(':active')) {
-            slider.value = v;
-        }
-
-        label.textContent = v;
-
-        // CSS variable for potential future styling
-        slider.style.setProperty('--val', v + '%');
+        sliders[c.key].value = val;
+        labels[c.key].textContent = val;
     });
 }
 
-// attach slider events
+// events
 categories.forEach(c => {
-    const slider = sliders[c.key];
-
-    slider.addEventListener('input', (e) => {
-        const newVal = Number(e.target.value);
-
-        normalize(c.key, newVal);
+    sliders[c.key].addEventListener('input', (e) => {
+        normalize(c.key, Number(e.target.value));
         render();
     });
 
-    slider.addEventListener('pointerdown', () => {
-        state.activeDrag = c.key;
-    });
+    labels[c.key].style.cursor = "pointer";
 
-    slider.addEventListener('pointerup', () => {
-        state.activeDrag = null;
-    });
-});
-
-// optional lock system (click label to toggle lock)
-categories.forEach(c => {
-    const el = labels[c.key];
-
-    el.style.cursor = "pointer";
-
-    el.addEventListener('click', () => {
+    labels[c.key].addEventListener('click', () => {
         state.locked[c.key] = !state.locked[c.key];
-        el.style.opacity = state.locked[c.key] ? 0.4 : 1;
+        labels[c.key].style.opacity = state.locked[c.key] ? 0.4 : 1;
     });
 });
 
