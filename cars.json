@@ -2,6 +2,7 @@
     {
         "id": "2015-honda-civic",
         "name": "2015 Honda Civic",
+        "price": 9000,
         "reliability": 9.0,
         "costOfOwnership": 9.0,
         "insuranceAffordability": 8.5,
@@ -12,6 +13,7 @@
     {
         "id": "2015-toyota-corolla",
         "name": "2015 Toyota Corolla",
+        "price": 7000,
         "reliability": 9.0,
         "costOfOwnership": 9.0,
         "insuranceAffordability": 8.5,
@@ -22,6 +24,7 @@
     {
         "id": "2015-mazda3",
         "name": "2015 Mazda3",
+        "price":  8800,
         "reliability": 8.5,
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.0,
@@ -32,6 +35,7 @@
     {
         "id": "2015-hyundai-elantra",
         "name": "2015 Hyundai Elantra",
+        "price": 7000,
         "reliability": 8.2,
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.5,
@@ -42,6 +46,7 @@
     {
         "id": "2015-kia-forte",
         "name": "2015 Kia Forte",
+        "price": 6500,
         "reliability": 8.0,
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.5,
@@ -52,6 +57,7 @@
     {
         "id": "2015-subaru-impreza",
         "name": "2015 Subaru Impreza",
+        "price": 9000,
         "reliability": 8.0,
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.8,
@@ -62,6 +68,7 @@
     {
         "id": "2015-nissan-sentra",
         "name": "2015 Nissan Sentra",
+        "price": 5000,
         "reliability": 7.8,
         "costOfOwnership": 8.2,
         "insuranceAffordability": 8.4,
@@ -72,6 +79,7 @@
     {
         "id": "2015-volkswagen-jetta",
         "name": "2015 Volkswagen Jetta",
+        "price": 5500,
         "reliability": 7.2,
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.4,
@@ -82,6 +90,7 @@
     {
         "id": "2015-toyota-camry",
         "name": "2015 Toyota Camry",
+        "price": 9000,
         "reliability": 9.2,
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.0,
@@ -92,6 +101,7 @@
     {
         "id": "2015-honda-accord",
         "name": "2015 Honda Accord",
+        "price": 7000,
         "reliability": 9.0,
         "costOfOwnership": 8.2,
         "insuranceAffordability": 7.8,
@@ -102,6 +112,7 @@
     {
         "id": "2015-hyundai-sonata",
         "name": "2015 Hyundai Sonata",
+        "price": 6000,
         "reliability": 8.2,
         "costOfOwnership": 8.3,
         "insuranceAffordability": 8.2,
@@ -112,6 +123,7 @@
     {
         "id": "2015-kia-k5",
         "name": "2015 Kia K5",
+        "price": 7000,
         "reliability": 8.0,
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.7,
@@ -122,6 +134,7 @@
     {
         "id": "2015-subaru-legacy",
         "name": "2015 Subaru Legacy",
+        "price": 9000,
         "reliability": 8.1,
         "costOfOwnership": 7.4,
         "insuranceAffordability": 7.5,
@@ -132,6 +145,7 @@
     {
         "id": "2015-toyota-prius",
         "name": "2015 Toyota Prius",
+        "price": 8800,
         "reliability": 9.2,
         "costOfOwnership": 9.2,
         "insuranceAffordability": 8.5,
@@ -142,6 +156,7 @@
     {
         "id": "2017-hyundai-ioniq-hybrid",
         "name": "2017 Hyundai Ioniq Hybrid",
+        "price": 7875,
         "reliability": 8.4,
         "costOfOwnership": 8.7,
         "insuranceAffordability": 8.2,
@@ -153,6 +168,7 @@
     {
         "id": "2015-toyota-rav4",
         "name": "2015 Toyota RAV4",
+        "price": 14000,
         "reliability": 8.8,
         "costOfOwnership": 8.2,
         "insuranceAffordability": 7.8,
@@ -163,6 +179,7 @@
     {
         "id": "2015-honda-crv",
         "name": "2015 Honda CR-V",
+        "price": 9000,
         "reliability": 8.9,
         "costOfOwnership": 8.0,
         "insuranceAffordability": 7.7,
@@ -173,6 +190,7 @@
     {
         "id": "2015-mazda-cx5",
         "name": "2015 Mazda CX-5",
+        "price": 7500,
         "reliability": 8.4,
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.2,
@@ -183,6 +201,7 @@
     {
         "id": "2015-subaru-forester",
         "name": "2015 Subaru Forester",
+        "price": 10500,
         "reliability": 8.3,
         "costOfOwnership": 7.6,
         "insuranceAffordability": 7.4,
@@ -193,6 +212,7 @@
     {
         "id": "2015-ford-escape",
         "name": "2015 Ford Escape",
+        "price": 5995,
         "reliability": 7.2,
         "costOfOwnership": 7.0,
         "insuranceAffordability": 7.2,
@@ -203,6 +223,7 @@
     {
         "id": "2015-hyundai-tucson",
         "name": "2015 Hyundai Tucson",
+        "price": 9000,
         "reliability": 8.1,
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.6,
@@ -214,6 +235,7 @@
     {
         "id": "2015-mustang-gt",
         "name": "2015 Ford Mustang GT",
+        "price": 20000,
         "reliability": 7.0,
         "costOfOwnership": 6.5,
         "insuranceAffordability": 5.5,
@@ -224,6 +246,7 @@
     {
         "id": "2015-camaro-ss",
         "name": "2015 Chevrolet Camaro SS",
+        "price": 17500,
         "reliability": 6.8,
         "costOfOwnership": 6.4,
         "insuranceAffordability": 5.4,
@@ -234,6 +257,7 @@
     {
         "id": "2014-charger-rt",
         "name": "2014 Dodge Charger R/T",
+        "price": 4200,
         "reliability": 6.5,
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
@@ -244,6 +268,7 @@
     {
         "id": "2014-corvette-stingray",
         "name": "2014 Chevrolet Corvette Stingray",
+        "price": 35000,
         "reliability": 7.5,
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
@@ -254,6 +279,7 @@
     {
         "id": "2021-gr-supra",
         "name": "2021 Toyota GR Supra",
+        "price": 36000,
         "reliability": 8.2,
         "costOfOwnership": 7.2,
         "insuranceAffordability": 5.8,
@@ -264,6 +290,7 @@
     {
         "id": "2015-wrx",
         "name": "2015 Subaru WRX",
+        "price": 13000,
         "reliability": 8.0,
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
@@ -274,6 +301,7 @@
     {
         "id": "2015-frs",
         "name": "2015 Scion FR-S",
+        "price": 13000,
         "reliability": 8.2,
         "costOfOwnership": 7.8,
         "insuranceAffordability": 8.0,
@@ -284,6 +312,7 @@
     {
         "id": "2015-370z",
         "name": "2015 Nissan 370Z",
+        "price": 15000,
         "reliability": 7.8,
         "costOfOwnership": 7.0,
         "insuranceAffordability": 5.5,
@@ -295,6 +324,7 @@
     {
         "id": "2015-porsche-911",
         "name": "2015 Porsche 911 Carrera",
+        "price": 60000,
         "reliability": 8.0,
         "costOfOwnership": 4.0,
         "insuranceAffordability": 4.0,
@@ -305,6 +335,7 @@
     {
         "id": "2015-audi-rs5",
         "name": "2015 Audi RS5",
+        "price": 20000,
         "reliability": 7.5,
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
@@ -316,6 +347,7 @@
     {
         "id": "2015-bmw-m4",
         "name": "2015 BMW M4",
+        "price": 30000,
         "reliability": 6.5,
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
@@ -326,6 +358,7 @@
     {
         "id": "2015-c63-amg",
         "name": "2015 Mercedes-Benz C63 AMG",
+        "price": 25000,
         "reliability": 6.5,
         "costOfOwnership": 4.5,
         "insuranceAffordability": 4.5,
@@ -336,6 +369,7 @@
     {
         "id": "2021-hellcat",
         "name": "2021 Dodge Challenger SRT Hellcat",
+        "price": 45000,
         "reliability": 7.0,
         "costOfOwnership": 5.5,
         "insuranceAffordability": 4.0,
@@ -346,6 +380,7 @@
     {
         "id": "2016-honda-fit",
         "name": "2016 Honda Fit",
+        "price": 9500,
         "reliability": 8.8,
         "costOfOwnership": 9.2,
         "insuranceAffordability": 9.0,
@@ -356,6 +391,7 @@
     {
         "id": "2016-toyota-yaris",
         "name": "2016 Toyota Yaris",
+        "price": 6000,
         "reliability": 8.7,
         "costOfOwnership": 9.0,
         "insuranceAffordability": 9.1,
@@ -364,8 +400,9 @@
         "bodyStyle": "Hatchback"
     },
     {
-        "id": "2016-honda-civic-si",
-        "name": "2016 Honda Civic Si",
+        "id": "2017-honda-civic-si",
+        "name": "2017 Honda Civic Si",
+        "price": 16000,
         "reliability": 8.6,
         "costOfOwnership": 8.2,
         "insuranceAffordability": 8.0,
@@ -376,6 +413,7 @@
     {
         "id": "2016-volkswagen-gti",
         "name": "2016 Volkswagen GTI",
+        "price": 10000,
         "reliability": 7.8,
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.6,
@@ -386,6 +424,7 @@
     {
         "id": "2016-mazda-miata",
         "name": "2016 Mazda MX-5 Miata",
+        "price": 15000,
         "reliability": 8.5,
         "costOfOwnership": 8.4,
         "insuranceAffordability": 8.5,
@@ -396,6 +435,7 @@
     {
         "id": "2017-hyundai-elantra-gt",
         "name": "2017 Hyundai Elantra GT",
+        "price": 6000,
         "reliability": 8.2,
         "costOfOwnership": 8.5,
         "insuranceAffordability": 8.6,
@@ -406,6 +446,7 @@
     {
         "id": "2017-kia-optima",
         "name": "2017 Kia Optima",
+        "price":  8000,
         "reliability": 8.0,
         "costOfOwnership": 8.3,
         "insuranceAffordability": 8.4,
@@ -416,6 +457,7 @@
     {
         "id": "2017-toyota-86",
         "name": "2017 Toyota 86",
+        "price": 11000,
         "reliability": 8.3,
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.7,
@@ -426,6 +468,7 @@
     {
         "id": "2017-honda-hrv",
         "name": "2017 Honda HR-V",
+        "price": 13000,
         "reliability": 8.7,
         "costOfOwnership": 8.6,
         "insuranceAffordability": 8.7,
@@ -436,6 +479,7 @@
     {
         "id": "2017-subaru-outback",
         "name": "2017 Subaru Outback",
+        "price": 13000,
         "reliability": 8.6,
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.0,
@@ -446,6 +490,7 @@
     {
         "id": "2016-ford-fusion",
         "name": "2016 Ford Fusion",
+        "price": 3000,
         "reliability": 7.8,
         "costOfOwnership": 7.9,
         "insuranceAffordability": 7.8,
@@ -456,6 +501,7 @@
     {
         "id": "2016-chevy-malibu",
         "name": "2016 Chevrolet Malibu",
+        "price": 4000,
         "reliability": 7.6,
         "costOfOwnership": 8.0,
         "insuranceAffordability": 8.1,
@@ -466,6 +512,7 @@
     {
         "id": "2017-lexus-is300",
         "name": "2017 Lexus IS 300",
+        "price": 16500,
         "reliability": 9.0,
         "costOfOwnership": 7.5,
         "insuranceAffordability": 7.0,
@@ -476,6 +523,7 @@
     {
         "id": "2017-acura-tlx",
         "name": "2017 Acura TLX",
+        "price": 14000,
         "reliability": 8.7,
         "costOfOwnership": 7.8,
         "insuranceAffordability": 7.6,
@@ -486,6 +534,7 @@
     {
         "id": "2016-infiniti-q50",
         "name": "2016 Infiniti Q50",
+        "price": 9800,
         "reliability": 7.5,
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
@@ -496,6 +545,7 @@
     {
         "id": "2017-bmw-340i",
         "name": "2017 BMW 340i",
+        "price": 16000,
         "reliability": 7.0,
         "costOfOwnership": 6.5,
         "insuranceAffordability": 6.0,
@@ -506,6 +556,7 @@
     {
         "id": "2017-audi-a4",
         "name": "2017 Audi A4",
+        "price": 9000,
         "reliability": 7.6,
         "costOfOwnership": 6.8,
         "insuranceAffordability": 6.8,
@@ -516,6 +567,7 @@
     {
         "id": "2017-mercedes-c300",
         "name": "2017 Mercedes C300",
+        "price": 14000,
         "reliability": 7.4,
         "costOfOwnership": 6.7,
         "insuranceAffordability": 6.5,
@@ -526,6 +578,7 @@
     {
         "id": "2016-jeep-grand-cherokee",
         "name": "2016 Jeep Grand Cherokee",
+        "price": 10000,
         "reliability": 7.2,
         "costOfOwnership": 7.0,
         "insuranceAffordability": 6.8,
@@ -536,6 +589,7 @@
     {
         "id": "2016-ford-explorer",
         "name": "2016 Ford Explorer",
+        "price": 10000,
         "reliability": 7.4,
         "costOfOwnership": 7.2,
         "insuranceAffordability": 7.0,
