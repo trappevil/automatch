@@ -71,7 +71,6 @@ const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort-select');
 const filterBody = document.querySelector('#filter-body');
 const priceFilter = document.querySelector('#price-filter');
-const filterBody = document.querySelector('#filter-body');
 
 const customProfile = document.querySelector('#custom-profile');
 
