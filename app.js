@@ -133,7 +133,7 @@ function normalize(changedKey) {
     const keys = Object.keys(state.sliders);
 
     const unlocked = keys.filter(
-        k => !lockedWeights[k] && k !== changedKey
+        k => !window.lockedWeights[k] && k !== changedKey
     );
 
     if (unlocked.length === 0) {
@@ -144,7 +144,7 @@ function normalize(changedKey) {
     let lockedTotal = 0;
 
     keys.forEach(key => {
-        if (lockedWeights[key]) {
+        if (window.lockedWeights[key]) {
             lockedTotal += state.sliders[key];
         }
     });
@@ -170,7 +170,14 @@ function normalize(changedKey) {
     } else {
         unlocked.forEach(key => {
             const ratio = state.sliders[key] / unlockedTotal;
-            state.sliders[key] = Math.round((remaining * ratio) / 5) * 5;
+
+            state.sliders[key] = Math.max(
+                0,
+                Math.min(
+                    100,
+                    Math.round((remaining * ratio) / 5) * 5
+                )
+            );
         });
     }
 
