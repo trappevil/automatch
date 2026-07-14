@@ -46,6 +46,7 @@ const state = {
     searchTerm: '',
     sortMode: 'bestMatch',
     bodyFilter: 'all',
+    priceFilter: 'all',
     sliders: {
         reliability: 35,
         cost: 25,
@@ -69,6 +70,8 @@ const rankingsList = document.querySelector('#rankings-list');
 const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort-select');
 const filterBody = document.querySelector('#filter-body');
+const priceFilter = document.querySelector('#price-filter');
+const filterBody = document.querySelector('#filter-body');
 
 const customProfile = document.querySelector('#custom-profile');
 
@@ -86,7 +89,6 @@ const costValue = document.querySelector('#cost-value');
 const insuranceValue = document.querySelector('#insurance-value');
 const fuelValue = document.querySelector('#fuel-value');
 const performanceValue = document.querySelector('#performance-value');
-
 function initLocks() {
     const lockedWeights = {
         reliability: false,
@@ -261,7 +263,11 @@ function render() {
 
     cars = cars.filter(c =>
         (!search || c.name.toLowerCase().includes(search)) &&
-        (state.bodyFilter === 'all' || c.bodyStyle === state.bodyFilter)
+        (state.bodyFilter === 'all' || c.bodyStyle === state.bodyFilter) &&
+        (
+            state.priceFilter === 'all' ||
+            c.price <= Number(state.priceFilter)
+        )
     );
 
     cars.sort((a, b) => b.finalScore - a.finalScore);
@@ -322,6 +328,11 @@ searchInput.addEventListener('input', e => {
 
 filterBody.addEventListener('change', e => {
     state.bodyFilter = e.target.value;
+    render();
+});
+
+priceFilter.addEventListener('change', e => {
+    state.priceFilter = e.target.value;
     render();
 });
 
