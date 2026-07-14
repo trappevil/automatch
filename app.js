@@ -46,6 +46,22 @@ const state = {
     searchTerm: '',
     sortMode: 'bestMatch',
     bodyFilter: 'all',
+    minPrice: 0,
+    maxPrice: 100000,
+
+    minYear: 1990,
+    maxYear: 2026,
+
+    transmission: 'all',
+    drivetrain: 'all',
+    fuelType: 'all',
+
+    make: 'all',
+
+    minHorsepower: 0,
+    minTorque: 0,
+
+    minSeats: 0,
     priceFilter: 'all',
     sliders: {
         reliability: 35,
@@ -71,6 +87,22 @@ const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort-select');
 const filterBody = document.querySelector('#filter-body');
 const priceFilter = document.querySelector('#price-filter');
+
+const minPriceInput = document.querySelector('#min-price');
+const maxPriceInput = document.querySelector('#max-price');
+
+const minYearInput = document.querySelector('#min-year');
+const maxYearInput = document.querySelector('#max-year');
+
+const transmissionFilter = document.querySelector('#transmission-filter');
+const drivetrainFilter = document.querySelector('#drivetrain-filter');
+const fuelFilter = document.querySelector('#fuel-filter');
+const makeFilter = document.querySelector('#make-filter');
+
+const minHorsepowerInput = document.querySelector('#min-horsepower');
+const minTorqueInput = document.querySelector('#min-torque');
+
+const minSeatsInput = document.querySelector('#min-seats');
 
 const customProfile = document.querySelector('#custom-profile');
 
@@ -262,11 +294,28 @@ function render() {
 
     cars = cars.filter(c =>
         (!search || c.name.toLowerCase().includes(search)) &&
+
         (state.bodyFilter === 'all' || c.bodyStyle === state.bodyFilter) &&
-        (
-            state.priceFilter === 'all' ||
-            c.price <= Number(state.priceFilter)
-        )
+
+        c.price >= state.minPrice &&
+        c.price <= state.maxPrice &&
+
+        c.year >= state.minYear &&
+        c.year <= state.maxYear &&
+
+        (state.transmission === 'all' ||
+            c.transmission === state.transmission) &&
+
+        (state.drivetrain === 'all' ||
+            c.drivetrain === state.drivetrain) &&
+
+        (state.fuelType === 'all' ||
+            c.fuelType === state.fuelType) &&
+
+        c.horsepower >= state.minHorsepower &&
+        c.torque >= state.minTorque &&
+
+        c.seatingCapacity >= state.minSeats
     );
 
     cars.sort((a, b) => b.finalScore - a.finalScore);
@@ -337,6 +386,41 @@ priceFilter.addEventListener('change', e => {
 
 sortSelect.addEventListener('change', e => {
     state.sortMode = e.target.value;
+    render();
+});
+
+minPriceInput.addEventListener('input', e => {
+    state.minPrice = Number(e.target.value) || 0;
+    render();
+});
+
+maxPriceInput.addEventListener('input', e => {
+    state.maxPrice = Number(e.target.value) || Infinity;
+    render();
+});
+
+minYearInput.addEventListener('input', e => {
+    state.minYear = Number(e.target.value) || 0;
+    render();
+});
+
+maxYearInput.addEventListener('input', e => {
+    state.maxYear = Number(e.target.value) || 9999;
+    render();
+});
+
+transmissionFilter.addEventListener('change', e => {
+    state.transmission = e.target.value;
+    render();
+});
+
+drivetrainFilter.addEventListener('change', e => {
+    state.drivetrain = e.target.value;
+    render();
+});
+
+fuelFilter.addEventListener('change', e => {
+    state.fuelType = e.target.value;
     render();
 });
 
