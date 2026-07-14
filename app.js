@@ -62,7 +62,6 @@ const state = {
     minTorque: 0,
 
     minSeats: 0,
-    priceFilter: 'all',
     sliders: {
         reliability: 35,
         cost: 25,
@@ -86,7 +85,6 @@ const rankingsList = document.querySelector('#rankings-list');
 const searchInput = document.querySelector('#search-input');
 const sortSelect = document.querySelector('#sort-select');
 const filterBody = document.querySelector('#filter-body');
-const priceFilter = document.querySelector('#price-filter');
 
 const minPriceInput = document.querySelector('#min-price');
 const maxPriceInput = document.querySelector('#max-price');
@@ -120,6 +118,20 @@ const costValue = document.querySelector('#cost-value');
 const insuranceValue = document.querySelector('#insurance-value');
 const fuelValue = document.querySelector('#fuel-value');
 const performanceValue = document.querySelector('#performance-value');
+
+/* ---------------- HELPER: SAFE EVENT BINDING ---------------- */
+// Guards against a single missing element crashing the whole script,
+// the way the old #price-filter reference used to.
+function on(el, event, handler) {
+    if (!el) {
+        console.warn(`Skipped binding "${event}" — element not found.`);
+        return;
+    }
+    el.addEventListener(event, handler);
+}
+
+/* ---------------- LOCKS ---------------- */
+
 function initLocks() {
     const lockedWeights = {
         reliability: false,
@@ -309,8 +321,12 @@ function render() {
         (state.drivetrain === 'all' ||
             c.drivetrain === state.drivetrain) &&
 
+        // NOTE: cars.json uses the key "fueltype" (lowercase t), not "fuelType"
         (state.fuelType === 'all' ||
-            c.fuelType === state.fuelType) &&
+            c.fueltype === state.fuelType) &&
+
+        (state.make === 'all' ||
+            c.make === state.make) &&
 
         c.horsepower >= state.minHorsepower &&
         c.torque >= state.minTorque &&
@@ -343,9 +359,24 @@ function render() {
     showView('results');
 }
 
+/* ---------------- POPULATE MAKE FILTER ---------------- */
+
+function populateMakeFilter() {
+    if (!makeFilter) return;
+
+    const makes = [...new Set(state.cars.map(c => c.make).filter(Boolean))].sort();
+
+    makes.forEach(make => {
+        const opt = document.createElement('option');
+        opt.value = make;
+        opt.textContent = make;
+        makeFilter.appendChild(opt);
+    });
+}
+
 /* ---------------- EVENTS ---------------- */
 
-profileSelect.addEventListener('change', e => {
+on(profileSelect, 'change', e => {
 
     state.selectedProfileKey = e.target.value;
 
@@ -364,82 +395,125 @@ profileSelect.addEventListener('change', e => {
 
 });
 
-profileForm.addEventListener('submit', e => {
+on(profileForm, 'submit', e => {
     e.preventDefault();
     render();
 });
 
-searchInput.addEventListener('input', e => {
+on(searchInput, 'input', e => {
     state.searchTerm = e.target.value;
     render();
 });
 
-filterBody.addEventListener('change', e => {
+on(filterBody, 'change', e => {
     state.bodyFilter = e.target.value;
     render();
 });
 
-priceFilter.addEventListener('change', e => {
-    state.priceFilter = e.target.value;
-    render();
-});
-
-sortSelect.addEventListener('change', e => {
+on(sortSelect, 'change', e => {
     state.sortMode = e.target.value;
     render();
 });
 
-minPriceInput.addEventListener('input', e => {
+on(minPriceInput, 'input', e => {
     state.minPrice = Number(e.target.value) || 0;
     render();
 });
 
-maxPriceInput.addEventListener('input', e => {
-    state.maxPrice = Number(e.target.value) || Infinity;
+on(maxPriceInput, 'input', e => {
+    state.maxPrice = e.target.value === '' ? 100000 : Number(e.target.value);
     render();
 });
 
-minYearInput.addEventListener('input', e => {
-    state.minYear = Number(e.target.value) || 0;
+on(minYearInput, 'input', e => {
+    state.minYear = e.target.value === '' ? 1990 : Number(e.target.value);
     render();
 });
 
-maxYearInput.addEventListener('input', e => {
-    state.maxYear = Number(e.target.value) || 9999;
+on(maxYearInput, 'input', e => {
+    state.maxYear = e.target.value === '' ? 2026 : Number(e.target.value);
     render();
 });
 
-transmissionFilter.addEventListener('change', e => {
+on(transmissionFilter, 'change', e => {
     state.transmission = e.target.value;
     render();
 });
 
-drivetrainFilter.addEventListener('change', e => {
+on(drivetrainFilter, 'change', e => {
     state.drivetrain = e.target.value;
     render();
 });
 
-fuelFilter.addEventListener('change', e => {
+on(fuelFilter, 'change', e => {
     state.fuelType = e.target.value;
     render();
 });
 
-/* sliders */
-reliabilitySlider.addEventListener('input', e => handleSlider('reliability', e.target.value));
-costSlider.addEventListener('input', e => handleSlider('cost', e.target.value));
-insuranceSlider.addEventListener('input', e => handleSlider('insurance', e.target.value));
-fuelSlider.addEventListener('input', e => handleSlider('fuel', e.target.value));
-performanceSlider.addEventListener('input', e => handleSlider('performance', e.target.value));
+on(makeFilter, 'change', e => {
+    state.make = e.target.value;
+    render();
+});
 
-/* navigation fix */
-document.querySelector('#back-home')?.addEventListener('click', () => showView('home'));
-document.querySelector('#back-results')?.addEventListener('click', () => showView('results'));
+on(minHorsepowerInput, 'input', e => {
+    state.minHorsepower = Number(e.target.value) || 0;
+    render();
+});
+
+on(minTorqueInput, 'input', e => {
+    state.minTorque = Number(e.target.value) || 0;
+    render();
+});
+
+on(minSeatsInput, 'input', e => {
+    state.minSeats = Number(e.target.value) || 0;
+    render();
+});
+
+/* sliders */
+on(reliabilitySlider, 'input', e => handleSlider('reliability', e.target.value));
+on(costSlider, 'input', e => handleSlider('cost', e.target.value));
+on(insuranceSlider, 'input', e => handleSlider('insurance', e.target.value));
+on(fuelSlider, 'input', e => handleSlider('fuel', e.target.value));
+on(performanceSlider, 'input', e => handleSlider('performance', e.target.value));
+
+/* navigation */
+on(document.querySelector('#back-home'), 'click', () => showView('home'));
+on(document.querySelector('#back-results'), 'click', () => showView('results'));
 
 /* ---------------- LOAD ---------------- */
 
 async function loadCars() {
-    const res = await fetch('cars.json');
-    state.cars = await res.json();
+    try {
+        const res = await fetch('cars.json');
+
+        if (!res.ok) {
+            throw new Error(`cars.json returned ${res.status} ${res.statusText}`);
+        }
+
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+            throw new Error('cars.json loaded but contained no cars.');
+        }
+
+        state.cars = data;
+
+        populateMakeFilter();
+
+        // Render immediately once data is ready, using the default profile,
+        // rather than waiting for a user click.
+        render();
+
+    } catch (err) {
+        console.error('Failed to load car data:', err);
+
+        const errorMessage = document.querySelector('#error-message');
+        if (errorMessage) {
+            errorMessage.textContent = `Couldn't load car data: ${err.message}`;
+        }
+        showView('error');
+    }
 }
 
 loadCars();
