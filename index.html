@@ -131,13 +131,42 @@
 
             <div class="controls">
 
-                <select id="price-filter">
-                    <option value="all">All Prices</option>
-                    <option value="15000">Under $15,000</option>
-                    <option value="25000">Under $25,000</option>
-                    <option value="35000">Under $35,000</option>
-                    <option value="50000">Under $50,000</option>
+                <input id="min-price" type="number" placeholder="Min Price">
+                <input id="max-price" type="number" placeholder="Max Price">
+
+                <input id="min-year" type="number" placeholder="Min Year">
+                <input id="max-year" type="number" placeholder="Max Year">
+
+                <select id="transmission-filter">
+                    <option value="all">Any Transmission</option>
+                    <option value="Automatic">Automatic</option>
+                    <option value="Manual">Manual</option>
                 </select>
+
+                <select id="drivetrain-filter">
+                    <option value="all">Any Drivetrain</option>
+                    <option value="FWD">FWD</option>
+                    <option value="RWD">RWD</option>
+                    <option value="AWD">AWD</option>
+                    <option value="4WD">4WD</option>
+                </select>
+
+                <select id="fuel-filter">
+                    <option value="all">Any Fuel Type</option>
+                    <option value="Gasoline">Gasoline</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Diesel">Diesel</option>
+                </select>
+
+                <select id="make-filter">
+                    <option value="all">Any Make</option>
+                </select>
+
+                <input id="min-horsepower" type="number" placeholder="Min HP">
+                <input id="min-torque" type="number" placeholder="Min Torque">
+
+                <input id="min-seats" type="number" placeholder="Minimum Seats">
 
                 <select id="filter-body">
                     <option value="all">All Body Styles</option>
