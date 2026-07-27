@@ -3,7 +3,25 @@ const categories = [
     { key: 'costOfOwnership', label: 'Cost of Ownership' },
     { key: 'insuranceAffordability', label: 'Insurance' },
     { key: 'fuelEfficiency', label: 'Fuel Efficiency' },
-    { key: 'performance', label: 'Performance' }
+    { key: 'performance', label: 'Performance' },
+];
+
+const qualityFactors = [
+    {
+        key: 'maintenanceAffordability',
+        label: 'Maintenance Affordability',
+        weight: 0.35
+    },
+    {
+        key: 'resaleValue',
+        label: 'Resale Value',
+        weight: 0.25
+    },
+    {
+        key: 'safety',
+        label: 'Safety',
+        weight: 0.40
+    }
 ];
 
 const profiles = {
@@ -340,7 +358,7 @@ function render() {
 
         // NOTE: cars.json uses the key "fueltype" (lowercase t), not "fuelType"
         (state.fuelType === 'all' ||
-            c.fueltype === state.fuelType) &&
+            c.fuelType === state.fuelType) &&
 
         (state.make === 'all' ||
             c.make === state.make) &&
