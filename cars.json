@@ -9,7 +9,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 143,
         "torque": 129,
@@ -17,7 +16,11 @@
         "costOfOwnership": 90,
         "insuranceAffordability": 85,
         "fuelEfficiency": 85,
-        "performance": 65
+        "performance": 65,
+        "maintenanceAffordability": 95,
+        "resaleValue": 93,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-toyota-corolla",
@@ -29,7 +32,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 132,
         "torque": 128,
@@ -37,7 +39,11 @@
         "costOfOwnership": 90,
         "insuranceAffordability": 85,
         "fuelEfficiency": 85,
-        "performance": 60
+        "performance": 60,
+        "maintenanceAffordability": 95,
+        "resaleValue": 94,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-mazda3",
@@ -49,7 +55,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 155,
         "torque": 150,
@@ -57,7 +62,11 @@
         "costOfOwnership": 80,
         "insuranceAffordability": 80,
         "fuelEfficiency": 80,
-        "performance": 75
+        "performance": 75,
+        "maintenanceAffordability": 84,
+        "resaleValue": 84,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-hyundai-elantra",
@@ -69,7 +78,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 145,
         "torque": 130,
@@ -77,7 +85,11 @@
         "costOfOwnership": 85,
         "insuranceAffordability": 85,
         "fuelEfficiency": 85,
-        "performance": 60
+        "performance": 60,
+        "maintenanceAffordability": 86,
+        "resaleValue": 77,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-kia-forte",
@@ -89,7 +101,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 145,
         "torque": 130,
@@ -97,7 +108,11 @@
         "costOfOwnership": 85,
         "insuranceAffordability": 85,
         "fuelEfficiency": 80,
-        "performance": 58
+        "performance": 58,
+        "maintenanceAffordability": 86,
+        "resaleValue": 75,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-subaru-impreza",
@@ -109,7 +124,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 148,
         "torque": 145,
@@ -117,7 +131,11 @@
         "costOfOwnership": 75,
         "insuranceAffordability": 78,
         "fuelEfficiency": 70,
-        "performance": 65
+        "performance": 65,
+        "maintenanceAffordability": 75,
+        "resaleValue": 83,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-nissan-sentra",
@@ -129,7 +147,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 130,
         "torque": 128,
@@ -137,7 +154,11 @@
         "costOfOwnership": 82,
         "insuranceAffordability": 84,
         "fuelEfficiency": 78,
-        "performance": 55
+        "performance": 55,
+        "maintenanceAffordability": 81,
+        "resaleValue": 74,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-volkswagen-jetta",
@@ -149,7 +170,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 170,
         "torque": 184,
@@ -157,7 +177,11 @@
         "costOfOwnership": 72,
         "insuranceAffordability": 74,
         "fuelEfficiency": 80,
-        "performance": 68
+        "performance": 68,
+        "maintenanceAffordability": 68,
+        "resaleValue": 71,
+        "safety": 82,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-toyota-camry",
@@ -169,7 +193,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 178,
         "torque": 170,
@@ -177,7 +200,11 @@
         "costOfOwnership": 85,
         "insuranceAffordability": 80,
         "fuelEfficiency": 78,
-        "performance": 68
+        "performance": 68,
+        "maintenanceAffordability": 92,
+        "resaleValue": 95,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-honda-accord",
@@ -189,7 +216,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 185,
         "torque": 181,
@@ -197,7 +223,11 @@
         "costOfOwnership": 82,
         "insuranceAffordability": 78,
         "fuelEfficiency": 75,
-        "performance": 75
+        "performance": 75,
+        "maintenanceAffordability": 89,
+        "resaleValue": 93,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-hyundai-sonata",
@@ -209,7 +239,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 185,
         "torque": 178,
@@ -217,7 +246,11 @@
         "costOfOwnership": 83,
         "insuranceAffordability": 82,
         "fuelEfficiency": 78,
-        "performance": 65
+        "performance": 65,
+        "maintenanceAffordability": 85,
+        "resaleValue": 77,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-kia-k5",
@@ -229,7 +262,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 192,
         "torque": 181,
@@ -237,7 +269,11 @@
         "costOfOwnership": 78,
         "insuranceAffordability": 77,
         "fuelEfficiency": 72,
-        "performance": 73
+        "performance": 73,
+        "maintenanceAffordability": 81,
+        "resaleValue": 75,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-subaru-legacy",
@@ -249,7 +285,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 175,
         "torque": 174,
@@ -257,7 +292,11 @@
         "costOfOwnership": 74,
         "insuranceAffordability": 75,
         "fuelEfficiency": 68,
-        "performance": 65
+        "performance": 65,
+        "maintenanceAffordability": 75,
+        "resaleValue": 83,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-toyota-prius",
@@ -269,7 +308,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Hybrid",
         "seatingCapacity": 5,
         "horsepower": 134,
         "torque": 105,
@@ -277,7 +315,11 @@
         "costOfOwnership": 92,
         "insuranceAffordability": 85,
         "fuelEfficiency": 98,
-        "performance": 50
+        "performance": 50,
+        "maintenanceAffordability": 97,
+        "resaleValue": 95,
+        "safety": 83,
+        "fuelType": "Hybrid"
     },
     {
         "id": "2017-hyundai-ioniq-hybrid",
@@ -289,7 +331,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Hybrid",
         "seatingCapacity": 5,
         "horsepower": 139,
         "torque": 109,
@@ -297,7 +338,11 @@
         "costOfOwnership": 87,
         "insuranceAffordability": 82,
         "fuelEfficiency": 96,
-        "performance": 55
+        "performance": 55,
+        "maintenanceAffordability": 88,
+        "resaleValue": 78,
+        "safety": 85,
+        "fuelType": "Hybrid"
     },
     {
         "id": "2015-toyota-rav4",
@@ -309,7 +354,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 176,
         "torque": 172,
@@ -317,7 +361,11 @@
         "costOfOwnership": 82,
         "insuranceAffordability": 78,
         "fuelEfficiency": 75,
-        "performance": 65
+        "performance": 65,
+        "maintenanceAffordability": 89,
+        "resaleValue": 93,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-honda-crv",
@@ -329,7 +377,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 185,
         "torque": 181,
@@ -337,7 +384,11 @@
         "costOfOwnership": 80,
         "insuranceAffordability": 77,
         "fuelEfficiency": 72,
-        "performance": 63
+        "performance": 63,
+        "maintenanceAffordability": 88,
+        "resaleValue": 92,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-mazda-cx5",
@@ -349,7 +400,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 184,
         "torque": 185,
@@ -357,7 +407,11 @@
         "costOfOwnership": 75,
         "insuranceAffordability": 72,
         "fuelEfficiency": 68,
-        "performance": 72
+        "performance": 72,
+        "maintenanceAffordability": 81,
+        "resaleValue": 83,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-subaru-forester",
@@ -369,7 +423,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 170,
         "torque": 174,
@@ -377,7 +430,11 @@
         "costOfOwnership": 76,
         "insuranceAffordability": 74,
         "fuelEfficiency": 70,
-        "performance": 63
+        "performance": 63,
+        "maintenanceAffordability": 77,
+        "resaleValue": 84,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-ford-escape",
@@ -389,7 +446,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 168,
         "torque": 170,
@@ -397,7 +453,11 @@
         "costOfOwnership": 70,
         "insuranceAffordability": 72,
         "fuelEfficiency": 68,
-        "performance": 66
+        "performance": 66,
+        "maintenanceAffordability": 71,
+        "resaleValue": 74,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-hyundai-tucson",
@@ -409,7 +469,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 164,
         "torque": 151,
@@ -417,7 +476,11 @@
         "costOfOwnership": 78,
         "insuranceAffordability": 76,
         "fuelEfficiency": 70,
-        "performance": 64
+        "performance": 64,
+        "maintenanceAffordability": 81,
+        "resaleValue": 76,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-mustang-gt",
@@ -429,7 +492,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 435,
         "torque": 400,
@@ -437,7 +499,11 @@
         "costOfOwnership": 65,
         "insuranceAffordability": 55,
         "fuelEfficiency": 45,
-        "performance": 90
+        "performance": 90,
+        "maintenanceAffordability": 66,
+        "resaleValue": 75,
+        "safety": 75,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-camaro-ss",
@@ -449,7 +515,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 426,
         "torque": 420,
@@ -457,7 +522,11 @@
         "costOfOwnership": 64,
         "insuranceAffordability": 54,
         "fuelEfficiency": 45,
-        "performance": 89
+        "performance": 89,
+        "maintenanceAffordability": 65,
+        "resaleValue": 72,
+        "safety": 75,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2014-charger-rt",
@@ -469,7 +538,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 370,
         "torque": 395,
@@ -477,7 +545,11 @@
         "costOfOwnership": 70,
         "insuranceAffordability": 55,
         "fuelEfficiency": 45,
-        "performance": 88
+        "performance": 88,
+        "maintenanceAffordability": 67,
+        "resaleValue": 70,
+        "safety": 78,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2014-corvette-stingray",
@@ -489,7 +561,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 2,
         "horsepower": 455,
         "torque": 460,
@@ -497,7 +568,11 @@
         "costOfOwnership": 70,
         "insuranceAffordability": 55,
         "fuelEfficiency": 45,
-        "performance": 96
+        "performance": 96,
+        "maintenanceAffordability": 71,
+        "resaleValue": 75,
+        "safety": 74,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2021-gr-supra",
@@ -509,7 +584,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 2,
         "horsepower": 382,
         "torque": 368,
@@ -517,7 +591,11 @@
         "costOfOwnership": 72,
         "insuranceAffordability": 58,
         "fuelEfficiency": 70,
-        "performance": 88
+        "performance": 88,
+        "maintenanceAffordability": 80,
+        "resaleValue": 88,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-wrx",
@@ -529,7 +607,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 268,
         "torque": 258,
@@ -537,7 +614,11 @@
         "costOfOwnership": 72,
         "insuranceAffordability": 70,
         "fuelEfficiency": 68,
-        "performance": 86
+        "performance": 86,
+        "maintenanceAffordability": 73,
+        "resaleValue": 85,
+        "safety": 81,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-frs",
@@ -549,7 +630,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 200,
         "torque": 151,
@@ -557,7 +637,11 @@
         "costOfOwnership": 78,
         "insuranceAffordability": 80,
         "fuelEfficiency": 82,
-        "performance": 83
+        "performance": 83,
+        "maintenanceAffordability": 83,
+        "resaleValue": 82,
+        "safety": 76,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-370z",
@@ -569,7 +653,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 2,
         "horsepower": 332,
         "torque": 270,
@@ -577,7 +660,11 @@
         "costOfOwnership": 70,
         "insuranceAffordability": 55,
         "fuelEfficiency": 50,
-        "performance": 88
+        "performance": 88,
+        "maintenanceAffordability": 72,
+        "resaleValue": 74,
+        "safety": 76,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-porsche-911",
@@ -589,7 +676,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 350,
         "torque": 287,
@@ -597,7 +683,11 @@
         "costOfOwnership": 40,
         "insuranceAffordability": 40,
         "fuelEfficiency": 55,
-        "performance": 98
+        "performance": 98,
+        "maintenanceAffordability": 39,
+        "resaleValue": 84,
+        "safety": 76,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-audi-rs5",
@@ -609,7 +699,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 450,
         "torque": 317,
@@ -617,7 +706,11 @@
         "costOfOwnership": 45,
         "insuranceAffordability": 45,
         "fuelEfficiency": 55,
-        "performance": 92
+        "performance": 92,
+        "maintenanceAffordability": 43,
+        "resaleValue": 70,
+        "safety": 76,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-bmw-m4",
@@ -629,7 +722,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 425,
         "torque": 406,
@@ -637,7 +729,11 @@
         "costOfOwnership": 45,
         "insuranceAffordability": 45,
         "fuelEfficiency": 55,
-        "performance": 94
+        "performance": 94,
+        "maintenanceAffordability": 40,
+        "resaleValue": 67,
+        "safety": 75,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2015-c63-amg",
@@ -649,7 +745,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 469,
         "torque": 479,
@@ -657,7 +752,11 @@
         "costOfOwnership": 45,
         "insuranceAffordability": 45,
         "fuelEfficiency": 55,
-        "performance": 93
+        "performance": 93,
+        "maintenanceAffordability": 40,
+        "resaleValue": 66,
+        "safety": 80,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2021-hellcat",
@@ -669,7 +768,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 717,
         "torque": 656,
@@ -677,7 +775,11 @@
         "costOfOwnership": 55,
         "insuranceAffordability": 40,
         "fuelEfficiency": 35,
-        "performance": 95
+        "performance": 95,
+        "maintenanceAffordability": 57,
+        "resaleValue": 72,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-honda-fit",
@@ -689,7 +791,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 130,
         "torque": 114,
@@ -697,7 +798,11 @@
         "costOfOwnership": 92,
         "insuranceAffordability": 90,
         "fuelEfficiency": 93,
-        "performance": 62
+        "performance": 62,
+        "maintenanceAffordability": 96,
+        "resaleValue": 90,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-toyota-yaris",
@@ -709,7 +814,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 106,
         "torque": 103,
@@ -717,7 +821,11 @@
         "costOfOwnership": 90,
         "insuranceAffordability": 91,
         "fuelEfficiency": 88,
-        "performance": 58
+        "performance": 58,
+        "maintenanceAffordability": 94,
+        "resaleValue": 90,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-honda-civic-si",
@@ -729,7 +837,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Manual",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 205,
         "torque": 192,
@@ -737,7 +844,11 @@
         "costOfOwnership": 82,
         "insuranceAffordability": 80,
         "fuelEfficiency": 78,
-        "performance": 84
+        "performance": 84,
+        "maintenanceAffordability": 88,
+        "resaleValue": 91,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-volkswagen-gti",
@@ -749,7 +860,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 210,
         "torque": 258,
@@ -757,7 +867,11 @@
         "costOfOwnership": 75,
         "insuranceAffordability": 76,
         "fuelEfficiency": 79,
-        "performance": 86
+        "performance": 86,
+        "maintenanceAffordability": 72,
+        "resaleValue": 73,
+        "safety": 81,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-mazda-miata",
@@ -769,7 +883,6 @@
         "bodyStyle": "Convertible",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 2,
         "horsepower": 155,
         "torque": 148,
@@ -777,7 +890,11 @@
         "costOfOwnership": 84,
         "insuranceAffordability": 85,
         "fuelEfficiency": 87,
-        "performance": 88
+        "performance": 88,
+        "maintenanceAffordability": 87,
+        "resaleValue": 86,
+        "safety": 75,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-hyundai-elantra-gt",
@@ -789,7 +906,6 @@
         "bodyStyle": "Hatchback",
         "transmission": "Both",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 162,
         "torque": 150,
@@ -797,7 +913,11 @@
         "costOfOwnership": 85,
         "insuranceAffordability": 86,
         "fuelEfficiency": 83,
-        "performance": 72
+        "performance": 72,
+        "maintenanceAffordability": 86,
+        "resaleValue": 77,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-kia-optima",
@@ -809,7 +929,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 185,
         "torque": 178,
@@ -817,7 +936,11 @@
         "costOfOwnership": 83,
         "insuranceAffordability": 84,
         "fuelEfficiency": 80,
-        "performance": 70
+        "performance": 70,
+        "maintenanceAffordability": 84,
+        "resaleValue": 75,
+        "safety": 86,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-toyota-86",
@@ -829,7 +952,6 @@
         "bodyStyle": "Coupe",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 4,
         "horsepower": 205,
         "torque": 156,
@@ -837,7 +959,11 @@
         "costOfOwnership": 78,
         "insuranceAffordability": 77,
         "fuelEfficiency": 80,
-        "performance": 85
+        "performance": 85,
+        "maintenanceAffordability": 84,
+        "resaleValue": 89,
+        "safety": 79,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-honda-hrv",
@@ -849,7 +975,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 141,
         "torque": 127,
@@ -857,7 +982,11 @@
         "costOfOwnership": 86,
         "insuranceAffordability": 87,
         "fuelEfficiency": 84,
-        "performance": 63
+        "performance": 63,
+        "maintenanceAffordability": 91,
+        "resaleValue": 89,
+        "safety": 87,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-subaru-outback",
@@ -869,7 +998,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 175,
         "torque": 174,
@@ -877,7 +1005,11 @@
         "costOfOwnership": 80,
         "insuranceAffordability": 80,
         "fuelEfficiency": 75,
-        "performance": 68
+        "performance": 68,
+        "maintenanceAffordability": 81,
+        "resaleValue": 87,
+        "safety": 87,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-ford-fusion",
@@ -889,7 +1021,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 175,
         "torque": 175,
@@ -897,7 +1028,11 @@
         "costOfOwnership": 79,
         "insuranceAffordability": 78,
         "fuelEfficiency": 80,
-        "performance": 70
+        "performance": 70,
+        "maintenanceAffordability": 79,
+        "resaleValue": 76,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-chevy-malibu",
@@ -909,7 +1044,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 160,
         "torque": 184,
@@ -917,7 +1051,11 @@
         "costOfOwnership": 80,
         "insuranceAffordability": 81,
         "fuelEfficiency": 82,
-        "performance": 68
+        "performance": 68,
+        "maintenanceAffordability": 79,
+        "resaleValue": 75,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-lexus-is300",
@@ -929,7 +1067,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 241,
         "torque": 258,
@@ -937,7 +1074,11 @@
         "costOfOwnership": 75,
         "insuranceAffordability": 70,
         "fuelEfficiency": 72,
-        "performance": 78
+        "performance": 78,
+        "maintenanceAffordability": 77,
+        "resaleValue": 89,
+        "safety": 87,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-acura-tlx",
@@ -949,7 +1090,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "FWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 290,
         "torque": 267,
@@ -957,7 +1097,11 @@
         "costOfOwnership": 78,
         "insuranceAffordability": 76,
         "fuelEfficiency": 75,
-        "performance": 76
+        "performance": 76,
+        "maintenanceAffordability": 80,
+        "resaleValue": 82,
+        "safety": 86,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-infiniti-q50",
@@ -969,7 +1113,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 300,
         "torque": 295,
@@ -977,7 +1120,11 @@
         "costOfOwnership": 72,
         "insuranceAffordability": 70,
         "fuelEfficiency": 70,
-        "performance": 82
+        "performance": 82,
+        "maintenanceAffordability": 68,
+        "resaleValue": 69,
+        "safety": 84,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-bmw-340i",
@@ -989,7 +1136,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Both",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 320,
         "torque": 330,
@@ -997,7 +1143,11 @@
         "costOfOwnership": 65,
         "insuranceAffordability": 60,
         "fuelEfficiency": 72,
-        "performance": 90
+        "performance": 90,
+        "maintenanceAffordability": 55,
+        "resaleValue": 69,
+        "safety": 83,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-audi-a4",
@@ -1009,7 +1159,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 252,
         "torque": 273,
@@ -1017,7 +1166,11 @@
         "costOfOwnership": 68,
         "insuranceAffordability": 68,
         "fuelEfficiency": 78,
-        "performance": 78
+        "performance": 78,
+        "maintenanceAffordability": 60,
+        "resaleValue": 70,
+        "safety": 86,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2017-mercedes-c300",
@@ -1029,7 +1182,6 @@
         "bodyStyle": "Sedan",
         "transmission": "Automatic",
         "drivetrain": "RWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 241,
         "torque": 273,
@@ -1037,7 +1189,11 @@
         "costOfOwnership": 67,
         "insuranceAffordability": 65,
         "fuelEfficiency": 75,
-        "performance": 77
+        "performance": 77,
+        "maintenanceAffordability": 58,
+        "resaleValue": 70,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-jeep-grand-cherokee",
@@ -1049,7 +1205,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "4WD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 5,
         "horsepower": 295,
         "torque": 260,
@@ -1057,7 +1212,11 @@
         "costOfOwnership": 70,
         "insuranceAffordability": 68,
         "fuelEfficiency": 65,
-        "performance": 75
+        "performance": 75,
+        "maintenanceAffordability": 68,
+        "resaleValue": 76,
+        "safety": 85,
+        "fuelType": "Gasoline"
     },
     {
         "id": "2016-ford-explorer",
@@ -1069,7 +1228,6 @@
         "bodyStyle": "SUV",
         "transmission": "Automatic",
         "drivetrain": "AWD",
-        "fueltype": "Gasoline",
         "seatingCapacity": 7,
         "horsepower": 290,
         "torque": 255,
@@ -1077,6 +1235,10 @@
         "costOfOwnership": 72,
         "insuranceAffordability": 70,
         "fuelEfficiency": 66,
-        "performance": 73
+        "performance": 73,
+        "maintenanceAffordability": 73,
+        "resaleValue": 75,
+        "safety": 85,
+        "fuelType": "Gasoline"
     }
 ]
