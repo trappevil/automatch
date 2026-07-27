@@ -276,6 +276,20 @@ function normalize(changedKey) {
 
 /* ---------------- UPDATE UI ---------------- */
 
+function updateSliderFill(slider) {
+    if (!slider) return;
+
+    const min = Number(slider.min) || 0;
+    const max = Number(slider.max) || 100;
+    const value = Number(slider.value) || 0;
+
+    const percentage = ((value - min) / (max - min)) * 100;
+
+    slider.style.setProperty('--val', `${percentage}%`);
+}
+
+/* ---------------- UPDATE UI ---------------- */
+
 function updateSlidersUI() {
     reliabilitySlider.value = state.sliders.reliability;
     costSlider.value = state.sliders.cost;
@@ -288,6 +302,12 @@ function updateSlidersUI() {
     insuranceValue.textContent = Math.round(state.sliders.insurance);
     fuelValue.textContent = Math.round(state.sliders.fuel);
     performanceValue.textContent = Math.round(state.sliders.performance);
+
+    updateSliderFill(reliabilitySlider);
+    updateSliderFill(costSlider);
+    updateSliderFill(insuranceSlider);
+    updateSliderFill(fuelSlider);
+    updateSliderFill(performanceSlider);
 }
 
 /* ---------------- SLIDER HANDLER ---------------- */
