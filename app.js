@@ -267,9 +267,26 @@ function handleSlider(key, value) {
 /* ---------------- SCORE ---------------- */
 
 function scoreCar(car, profile) {
-    return categories.reduce((sum, c) => {
-        return sum + (car[c.key] || 0) * profile.weights[c.key];
+    const preferenceScore = categories.reduce((sum, category) => {
+        const carScore = Number(car[category.key]) || 0;
+        const userWeight = Number(profile.weights[category.key]) || 0;
+
+        return sum + carScore * userWeight;
     }, 0);
+
+    const qualityScore = qualityFactors.reduce((sum, factor) => {
+        const carScore = Number(car[factor.key]) || 0;
+
+        return sum + carScore * factor.weight;
+    }, 0);
+
+    const preferenceImportance = 0.85;
+    const qualityImportance = 0.15;
+
+    return (
+        preferenceScore * preferenceImportance +
+        qualityScore * qualityImportance
+    );
 }
 
 /* ---------------- CUSTOM PROFILE ---------------- */
