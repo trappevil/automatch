@@ -125,6 +125,12 @@ const customProfile = document.querySelector('#custom-profile');
 const summary = document.querySelector('#profile-summary');
 const resultsTitle = document.querySelector('#results-title');
 
+const detailsTitle = document.querySelector('#details-title');
+const detailsFinalScore = document.querySelector('#details-final-score');
+const detailsRankNote = document.querySelector('#details-rank-note');
+const detailsWhy = document.querySelector('#details-why');
+const categoryScores = document.querySelector('#category-scores');
+
 const reliabilitySlider = document.querySelector('#reliability-slider');
 const costSlider = document.querySelector('#cost-slider');
 const insuranceSlider = document.querySelector('#insurance-slider');
@@ -188,6 +194,20 @@ function initLocks() {
 function showView(v) {
     Object.values(views).forEach(x => x.classList.add('hidden'));
     views[v].classList.remove('hidden');
+}
+
+function formatCurrency(value) {
+    const price = Number(value);
+
+    if (!Number.isFinite(price)) {
+        return 'Price unavailable';
+    }
+
+    return price.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    });
 }
 
 /* ---------------- NORMALIZE SLIDERS ---------------- */
@@ -307,6 +327,34 @@ function scoreCar(car, profile) {
     );
 }
 
+/* ---------------- RECOMMENDATION EXPLANATION ---------------- */
+
+function getRecommendationExplanation(car, profile) {
+    const contributions = categories
+        .map(category => ({
+            label: category.label,
+            score: Number(car[category.key]) || 0,
+            contribution:
+                (Number(car[category.key]) || 0) *
+                (Number(profile.weights[category.key]) || 0)
+        }))
+        .sort((a, b) => b.contribution - a.contribution);
+
+    const strengths = contributions
+        .filter(item => item.score >= 80)
+        .slice(0, 3);
+
+    const weaknesses = contributions
+        .filter(item => item.score < 70)
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 2);
+
+    return {
+        strengths,
+        weaknesses
+    };
+}
+
 /* ---------------- CUSTOM PROFILE ---------------- */
 
 function getCustomProfile() {
@@ -369,7 +417,13 @@ function render() {
         c.seatingCapacity >= state.minSeats
     );
 
-    cars.sort((a, b) => b.finalScore - a.finalScore);
+    if (state.sortMode === 'performance') {
+        cars.sort((a, b) => b.performance - a.performance);
+    } else if (state.sortMode === 'cost') {
+        cars.sort((a, b) => a.price - b.price);
+    } else {
+        cars.sort((a, b) => b.finalScore - a.finalScore);
+    }
 
     state.rankedCars = cars.map((c, i) => ({
         ...c,
@@ -409,6 +463,172 @@ function populateMakeFilter() {
     });
 }
 
+/* ---------------- RENDER DETAILS ---------------- */
+
+function renderDetails(carId) {
+    const profile =
+        state.selectedProfileKey === 'custom'
+            ? getCustomProfile()
+            : profiles[state.selectedProfileKey];
+
+    const car = state.rankedCars.find(c => c.id === carId);
+
+    if (!car) {
+        console.warn(`Car with id "${carId}" was not found.`);
+        render();
+        return;
+    }
+
+    const explanation = getRecommendationExplanation(car, profile);
+
+    const strengthsText = explanation.strengths.length
+        ? explanation.strengths
+            .map(item => `
+                <li>
+                    <strong>${item.label}</strong>: ${item.score}/100
+                </li>
+            `)
+            .join('')
+        : `
+            <li>
+                Strong overall balance across your selected priorities.
+            </li>
+        `;
+
+    const weaknessesText = explanation.weaknesses.length
+        ? explanation.weaknesses
+            .map(item => `
+                <li>
+                    <strong>${item.label}</strong>: ${item.score}/100
+                </li>
+            `)
+            .join('')
+        : '';
+
+    const qualityStrengths = qualityFactors
+        .map(factor => ({
+            label: factor.label,
+            score: Number(car[factor.key]) || 0
+        }))
+        .filter(item => item.score >= 80)
+        .sort((a, b) => b.score - a.score);
+
+    const qualityText = qualityStrengths.length
+        ? qualityStrengths
+            .map(item => `
+                <li>
+                    <strong>${item.label}</strong>: ${item.score}/100
+                </li>
+            `)
+            .join('')
+        : `
+            <li>
+                Average supporting quality scores.
+            </li>
+        `;
+
+    detailsTitle.textContent = car.name;
+    detailsFinalScore.textContent = car.finalScore.toFixed(1);
+
+    detailsRankNote.textContent =
+        `${car.name} ranked #${car.rank} for the ${profile.label} profile.`;
+
+    detailsWhy.innerHTML = `
+        <div class="recommendation-section">
+            <h3>Why we recommend it</h3>
+            <ul>
+                ${strengthsText}
+            </ul>
+        </div>
+
+        <div class="recommendation-section">
+            <h3>Supporting quality factors</h3>
+            <ul>
+                ${qualityText}
+            </ul>
+        </div>
+
+        ${weaknessesText
+            ? `
+                    <div class="recommendation-section">
+                        <h3>Trade-offs</h3>
+                        <ul>
+                            ${weaknessesText}
+                        </ul>
+                    </div>
+                `
+            : ''
+        }
+
+        <div class="recommendation-section">
+            <h3>Vehicle specifications</h3>
+            <ul>
+                <li><strong>Price:</strong> ${formatCurrency(car.price)}</li>
+                <li><strong>Year:</strong> ${car.year}</li>
+                <li><strong>Body style:</strong> ${car.bodyStyle}</li>
+                <li><strong>Transmission:</strong> ${car.transmission}</li>
+                <li><strong>Drivetrain:</strong> ${car.drivetrain}</li>
+                <li><strong>Fuel type:</strong> ${car.fuelType}</li>
+                <li><strong>Seats:</strong> ${car.seatingCapacity}</li>
+                <li><strong>Horsepower:</strong> ${car.horsepower} hp</li>
+                <li><strong>Torque:</strong> ${car.torque} lb-ft</li>
+            </ul>
+        </div>
+    `;
+
+    const visibleScoreRows = categories.map(category => {
+        const score = Number(car[category.key]) || 0;
+        const weight = Number(profile.weights[category.key]) || 0;
+        const weightPercent = Math.round(weight * 100);
+
+        return `
+            <div class="category-row">
+                <div class="category-topline">
+                    <span>${category.label}</span>
+                    <span>${score}/100 · weight ${weightPercent}%</span>
+                </div>
+
+                <div class="bar-track" aria-hidden="true">
+                    <div
+                        class="bar-fill"
+                        style="width: ${Math.max(0, Math.min(100, score))}%">
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    const qualityScoreRows = qualityFactors.map(factor => {
+        const score = Number(car[factor.key]) || 0;
+
+        return `
+            <div class="category-row">
+                <div class="category-topline">
+                    <span>${factor.label}</span>
+                    <span>${score}/100</span>
+                </div>
+
+                <div class="bar-track" aria-hidden="true">
+                    <div
+                        class="bar-fill"
+                        style="width: ${Math.max(0, Math.min(100, score))}%">
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    categoryScores.innerHTML = `
+        <h3>Your weighted priorities</h3>
+        ${visibleScoreRows}
+
+        <h3 class="quality-heading">Quality factors</h3>
+        ${qualityScoreRows}
+    `;
+
+    showView('details');
+}
+
 /* ---------------- EVENTS ---------------- */
 
 on(profileSelect, 'change', e => {
@@ -433,6 +653,14 @@ on(profileSelect, 'change', e => {
 on(profileForm, 'submit', e => {
     e.preventDefault();
     render();
+});
+
+on(rankingsList, 'click', e => {
+    const row = e.target.closest('[data-id]');
+
+    if (!row) return;
+
+    renderDetails(row.dataset.id);
 });
 
 on(searchInput, 'input', e => {
