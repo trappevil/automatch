@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+          content="AutoMatch ranks cars around your budget, requirements, and priorities.">
+
     <title>AutoMatch</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -12,221 +19,613 @@
 
         <!-- HOME -->
         <section id="home-view" class="view">
-            <div class="header-block">
-                <p class="eyebrow">Weighted car matching</p>
-                <h1>AutoMatch</h1>
-                <p class="intro">Choose a buyer profile and rank cars by what matters most.</p>
-            </div>
 
-            <form id="profile-form">
+            <header class="hero-section">
+                <p class="eyebrow">Personalized car matching</p>
 
-                <label for="profile-select">Choose a Profile</label>
+                <h1>
+                    Find the right car.
+                    <span>Built around you.</span>
+                </h1>
 
-                <select id="profile-select">
-                    <option value="firstTimeBuyer">First-Time Buyer</option>
-                    <option value="enthusiast">Enthusiast</option>
-                    <option value="dailyCommuter">Daily Commuter</option>
-                    <option value="custom">Custom</option>
-                </select>
+                <p class="intro">
+                    Set your priorities, choose your requirements,
+                    and let AutoMatch rank the cars that fit your life.
+                </p>
+            </header>
 
-                <!-- CUSTOM SLIDERS -->
-                <div id="custom-profile" class="hidden">
+            <section class="profile-card">
+                <div class="section-heading">
+                    <p class="eyebrow">Start your search</p>
+                    <h2>Choose a buyer profile.</h2>
 
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            Reliability
-                            <button type="button" class="lock-btn" data-slider="reliability">🔓</button>
-                            <span id="reliability-value">35</span>
-                        </div>
-
-                        <input type="range"
-                               id="reliability-slider"
-                               min="0"
-                               max="100"
-                               step="5"
-                               value="35">
-                    </div>
-
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            Cost of Ownership
-                            <button type="button" class="lock-btn" data-slider="cost">🔓</button>
-                            <span id="cost-value">25</span>
-                        </div>
-
-                        <input type="range"
-                               id="cost-slider"
-                               min="0"
-                               max="100"
-                               step="5"
-                               value="25">
-                    </div>
-
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            Insurance Affordability
-                            <button type="button" class="lock-btn" data-slider="insurance">🔓</button>
-                            <span id="insurance-value">20</span>
-                        </div>
-
-                        <input type="range"
-                               id="insurance-slider"
-                               min="0"
-                               max="100"
-                               step="5"
-                               value="20">
-                    </div>
-
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            Fuel Efficiency
-                            <button type="button" class="lock-btn" data-slider="fuel">🔓</button>
-                            <span id="fuel-value">15</span>
-                        </div>
-
-                        <input type="range"
-                               id="fuel-slider"
-                               min="0"
-                               max="100"
-                               step="5"
-                               value="15">
-                    </div>
-
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            Performance
-                            <button type="button" class="lock-btn" data-slider="performance">🔓</button>
-                            <span id="performance-value">5</span>
-                        </div>
-
-                        <input type="range"
-                               id="performance-slider"
-                               min="0"
-                               max="100"
-                               step="5"
-                               value="5">
-                    </div>
-
+                    <p>
+                        Select a preset for instant rankings, or create
+                        a custom profile with your own category weights.
+                    </p>
                 </div>
 
-                <button type="submit">Generate Rankings</button>
-            </form>
+                <form id="profile-form">
+
+                    <div class="field-group">
+                        <label for="profile-select">
+                            Buyer profile
+                        </label>
+
+                        <select id="profile-select">
+                            <option value="firstTimeBuyer">
+                                First-Time Buyer
+                            </option>
+
+                            <option value="enthusiast">
+                                Enthusiast
+                            </option>
+
+                            <option value="dailyCommuter">
+                                Daily Commuter
+                            </option>
+
+                            <option value="custom">
+                                Custom
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- CUSTOM SLIDERS -->
+                    <div id="custom-profile" class="hidden">
+
+                        <div class="custom-profile-heading">
+                            <div>
+                                <p class="eyebrow">Custom profile</p>
+                                <h3>Choose what matters most.</h3>
+                            </div>
+
+                            <p>
+                                Adjust one category and the unlocked
+                                categories will rebalance automatically.
+                            </p>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span class="slider-name">
+                                    Reliability
+                                </span>
+
+                                <div class="slider-actions">
+                                    <button type="button"
+                                            class="lock-btn"
+                                            data-slider="reliability"
+                                            aria-label="Lock reliability weight"
+                                            title="Lock reliability">
+                                        🔓
+                                    </button>
+
+                                    <span id="reliability-value"
+                                          class="slider-value">
+                                        35
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="range"
+                                   id="reliability-slider"
+                                   min="0"
+                                   max="100"
+                                   step="5"
+                                   value="35"
+                                   aria-label="Reliability weight">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span class="slider-name">
+                                    Cost of Ownership
+                                </span>
+
+                                <div class="slider-actions">
+                                    <button type="button"
+                                            class="lock-btn"
+                                            data-slider="cost"
+                                            aria-label="Lock cost of ownership weight"
+                                            title="Lock cost of ownership">
+                                        🔓
+                                    </button>
+
+                                    <span id="cost-value"
+                                          class="slider-value">
+                                        25
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="range"
+                                   id="cost-slider"
+                                   min="0"
+                                   max="100"
+                                   step="5"
+                                   value="25"
+                                   aria-label="Cost of ownership weight">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span class="slider-name">
+                                    Insurance Affordability
+                                </span>
+
+                                <div class="slider-actions">
+                                    <button type="button"
+                                            class="lock-btn"
+                                            data-slider="insurance"
+                                            aria-label="Lock insurance affordability weight"
+                                            title="Lock insurance affordability">
+                                        🔓
+                                    </button>
+
+                                    <span id="insurance-value"
+                                          class="slider-value">
+                                        20
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="range"
+                                   id="insurance-slider"
+                                   min="0"
+                                   max="100"
+                                   step="5"
+                                   value="20"
+                                   aria-label="Insurance affordability weight">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span class="slider-name">
+                                    Fuel Efficiency
+                                </span>
+
+                                <div class="slider-actions">
+                                    <button type="button"
+                                            class="lock-btn"
+                                            data-slider="fuel"
+                                            aria-label="Lock fuel efficiency weight"
+                                            title="Lock fuel efficiency">
+                                        🔓
+                                    </button>
+
+                                    <span id="fuel-value"
+                                          class="slider-value">
+                                        15
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="range"
+                                   id="fuel-slider"
+                                   min="0"
+                                   max="100"
+                                   step="5"
+                                   value="15"
+                                   aria-label="Fuel efficiency weight">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span class="slider-name">
+                                    Performance
+                                </span>
+
+                                <div class="slider-actions">
+                                    <button type="button"
+                                            class="lock-btn"
+                                            data-slider="performance"
+                                            aria-label="Lock performance weight"
+                                            title="Lock performance">
+                                        🔓
+                                    </button>
+
+                                    <span id="performance-value"
+                                          class="slider-value">
+                                        5
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="range"
+                                   id="performance-slider"
+                                   min="0"
+                                   max="100"
+                                   step="5"
+                                   value="5"
+                                   aria-label="Performance weight">
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                            class="primary-button generate-button">
+                        Generate Rankings
+                    </button>
+
+                </form>
+            </section>
+
         </section>
 
         <!-- RESULTS -->
         <section id="results-view" class="view hidden">
 
-            <div class="page-topbar">
-                <button id="back-home" class="secondary-button" type="button">
+            <header class="results-hero">
+                <div>
+                    <p class="eyebrow">Your matches</p>
+
+                    <h2 id="results-title">
+                        Car Rankings
+                    </h2>
+
+                    <p class="results-intro">
+                        Ranked around your priorities and limited to
+                        cars that meet your selected requirements.
+                    </p>
+                </div>
+
+                <button id="back-home"
+                        class="secondary-button"
+                        type="button">
                     Change Profile
                 </button>
+            </header>
 
-                <div>
-                    <p class="eyebrow">Results</p>
-                    <h2 id="results-title">Car Rankings</h2>
+            <section id="profile-summary"
+                     class="summary-strip"
+                     aria-label="Selected profile weights">
+            </section>
+
+            <section class="filter-panel">
+
+                <div class="filter-panel-heading">
+                    <div>
+                        <p class="eyebrow">Refine results</p>
+                        <h3>Find the right fit.</h3>
+                    </div>
+
+                    <p>
+                        Every filter is a requirement. Cars that fail
+                        one are removed before scoring.
+                    </p>
                 </div>
-            </div>
 
-            <div id="profile-summary" class="summary-strip"></div>
+                <div class="controls">
 
-            <div class="controls">
+                    <div class="filter-group filter-group-wide">
+                        <label for="search-input">
+                            Search
+                        </label>
 
-                <input id="min-price" type="number" placeholder="Min Price">
-                <input id="max-price" type="number" placeholder="Max Price">
+                        <input id="search-input"
+                               type="search"
+                               placeholder="Search Civic, Corolla, Mustang...">
+                    </div>
 
-                <input id="min-year" type="number" placeholder="Min Year">
-                <input id="max-year" type="number" placeholder="Max Year">
+                    <div class="filter-group">
+                        <label for="min-price">
+                            Minimum price
+                        </label>
 
-                <select id="transmission-filter">
-                    <option value="all">Any Transmission</option>
-                    <option value="Automatic">Automatic</option>
-                    <option value="Manual">Manual</option>
-                </select>
+                        <input id="min-price"
+                               type="number"
+                               min="0"
+                               step="500"
+                               inputmode="numeric"
+                               placeholder="$0">
+                    </div>
 
-                <select id="drivetrain-filter">
-                    <option value="all">Any Drivetrain</option>
-                    <option value="FWD">FWD</option>
-                    <option value="RWD">RWD</option>
-                    <option value="AWD">AWD</option>
-                    <option value="4WD">4WD</option>
-                </select>
+                    <div class="filter-group">
+                        <label for="max-price">
+                            Maximum price
+                        </label>
 
-                <select id="fuel-filter">
-                    <option value="all">Any Fuel Type</option>
-                    <option value="Gasoline">Gasoline</option>
-                    <option value="Hybrid">Hybrid</option>
-                    <option value="Electric">Electric</option>
-                    <option value="Diesel">Diesel</option>
-                </select>
+                        <input id="max-price"
+                               type="number"
+                               min="0"
+                               step="500"
+                               inputmode="numeric"
+                               placeholder="$100,000">
+                    </div>
 
-                <select id="make-filter">
-                    <option value="all">Any Make</option>
-                </select>
+                    <div class="filter-group">
+                        <label for="min-year">
+                            Minimum year
+                        </label>
 
-                <input id="min-horsepower" type="number" placeholder="Min HP">
-                <input id="min-torque" type="number" placeholder="Min Torque">
+                        <input id="min-year"
+                               type="number"
+                               min="1900"
+                               max="2026"
+                               inputmode="numeric"
+                               placeholder="1990">
+                    </div>
 
-                <input id="min-seats" type="number" placeholder="Minimum Seats">
+                    <div class="filter-group">
+                        <label for="max-year">
+                            Maximum year
+                        </label>
 
-                <select id="filter-body">
-                    <option value="all">All Body Styles</option>
-                    <option value="Sedan">Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Coupe">Coupe</option>
-                    <option value="Hatchback">Hatchback</option>
-                </select>
+                        <input id="max-year"
+                               type="number"
+                               min="1900"
+                               max="2026"
+                               inputmode="numeric"
+                               placeholder="2026">
+                    </div>
 
-                <input id="search-input" type="text" placeholder="Search cars..." />
+                    <div class="filter-group">
+                        <label for="make-filter">
+                            Make
+                        </label>
 
-                <select id="sort-select">
-                    <option value="bestMatch">Best Match</option>
-                    <option value="performance">Performance</option>
-                    <option value="cost">Lowest Cost</option>
-                </select>
+                        <select id="make-filter">
+                            <option value="all">
+                                Any Make
+                            </option>
+                        </select>
+                    </div>
 
-            </div>
+                    <div class="filter-group">
+                        <label for="filter-body">
+                            Body style
+                        </label>
 
-            <div id="rankings-list"></div>
+                        <select id="filter-body">
+                            <option value="all">
+                                Any Body Style
+                            </option>
+
+                            <option value="Sedan">
+                                Sedan
+                            </option>
+
+                            <option value="SUV">
+                                SUV
+                            </option>
+
+                            <option value="Coupe">
+                                Coupe
+                            </option>
+
+                            <option value="Hatchback">
+                                Hatchback
+                            </option>
+
+                            <option value="Convertible">
+                                Convertible
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="transmission-filter">
+                            Transmission
+                        </label>
+
+                        <select id="transmission-filter">
+                            <option value="all">
+                                Any Transmission
+                            </option>
+
+                            <option value="Automatic">
+                                Automatic
+                            </option>
+
+                            <option value="Manual">
+                                Manual
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="drivetrain-filter">
+                            Drivetrain
+                        </label>
+
+                        <select id="drivetrain-filter">
+                            <option value="all">
+                                Any Drivetrain
+                            </option>
+
+                            <option value="FWD">
+                                FWD
+                            </option>
+
+                            <option value="RWD">
+                                RWD
+                            </option>
+
+                            <option value="AWD">
+                                AWD
+                            </option>
+
+                            <option value="4WD">
+                                4WD
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="fuel-filter">
+                            Fuel type
+                        </label>
+
+                        <select id="fuel-filter">
+                            <option value="all">
+                                Any Fuel Type
+                            </option>
+
+                            <option value="Gasoline">
+                                Gasoline
+                            </option>
+
+                            <option value="Hybrid">
+                                Hybrid
+                            </option>
+
+                            <option value="Electric">
+                                Electric
+                            </option>
+
+                            <option value="Diesel">
+                                Diesel
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="min-seats">
+                            Minimum seats
+                        </label>
+
+                        <input id="min-seats"
+                               type="number"
+                               min="0"
+                               max="15"
+                               inputmode="numeric"
+                               placeholder="Any">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="min-horsepower">
+                            Minimum horsepower
+                        </label>
+
+                        <input id="min-horsepower"
+                               type="number"
+                               min="0"
+                               step="10"
+                               inputmode="numeric"
+                               placeholder="Any HP">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="min-torque">
+                            Minimum torque
+                        </label>
+
+                        <input id="min-torque"
+                               type="number"
+                               min="0"
+                               step="10"
+                               inputmode="numeric"
+                               placeholder="Any lb-ft">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="sort-select">
+                            Sort by
+                        </label>
+
+                        <select id="sort-select">
+                            <option value="bestMatch">
+                                Best Match
+                            </option>
+
+                            <option value="performance">
+                                Performance
+                            </option>
+
+                            <option value="cost">
+                                Lowest Price
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="rankings-list"
+                     class="rankings-list"
+                     aria-live="polite">
+            </section>
+
         </section>
 
         <!-- DETAILS -->
         <section id="details-view" class="view hidden">
 
-            <div class="page-topbar">
-                <button id="back-results" class="secondary-button" type="button">
-                    Back
-                </button>
-
+            <header class="details-hero">
                 <div>
                     <p class="eyebrow">Car details</p>
-                    <h2 id="details-title"></h2>
+
+                    <h2 id="details-title">
+                        Selected Car
+                    </h2>
                 </div>
-            </div>
+
+                <button id="back-results"
+                        class="secondary-button"
+                        type="button">
+                    Back to Rankings
+                </button>
+            </header>
 
             <div class="details-grid">
 
-                <section class="details-panel">
+                <section class="details-panel details-overview">
+
                     <div class="score-callout">
-                        <span>Final Score</span>
-                        <strong id="details-final-score"></strong>
+                        <span>Match Score</span>
+
+                        <strong id="details-final-score">
+                            —
+                        </strong>
                     </div>
 
-                    <p id="details-rank-note" class="rank-note"></p>
-                    <div id="details-why" class="why-copy"></div>
+                    <p id="details-rank-note"
+                       class="rank-note">
+                    </p>
+
+                    <div id="details-why"
+                         class="why-copy">
+                    </div>
+
                 </section>
 
                 <section class="details-panel">
-                    <h3>Category Scores</h3>
-                    <div id="category-scores" class="category-list"></div>
+
+                    <div class="details-section-heading">
+                        <p class="eyebrow">Score breakdown</p>
+                        <h3>Category Scores</h3>
+                    </div>
+
+                    <div id="category-scores"
+                         class="category-list">
+                    </div>
+
                 </section>
 
             </div>
+
         </section>
 
         <!-- ERROR -->
         <section id="error-view" class="view hidden">
-            <h1>AutoMatch</h1>
-            <p id="error-message"></p>
+
+            <div class="error-card">
+                <p class="eyebrow">Something went wrong</p>
+
+                <h1>AutoMatch couldn’t load.</h1>
+
+                <p id="error-message"
+                   class="error-message">
+                </p>
+
+                <button type="button"
+                        class="secondary-button"
+                        onclick="window.location.reload()">
+                    Try Again
+                </button>
+            </div>
+
         </section>
 
     </main>
