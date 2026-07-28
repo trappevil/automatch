@@ -1156,17 +1156,15 @@ button {
     position: absolute;
     top: 18px;
     right: 18px;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border: none;
     border-radius: 50%;
-    background: white;
-    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    background: rgba(255,255,255,.95);
     font-size: 22px;
     cursor: pointer;
-    transition: .2s;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-    .favorite-btn:hover {
-        transform: scale(1.08);
-    }
