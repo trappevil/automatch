@@ -1158,7 +1158,7 @@ button {
 .favorite-btn {
     position: absolute;
     top: 50%;
-    left: 340px;
+    left: 300px;
 
     transform: translateY(-50%);
     width: 42px;
