@@ -1158,7 +1158,7 @@ button {
 .favorite-btn {
     position: absolute;
     top: 50%;
-    left: 260px; /* Move the heart beside the car info */
+    left: 340px;
 
     transform: translateY(-50%);
     width: 42px;
