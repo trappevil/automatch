@@ -1127,10 +1127,13 @@ button {
     }
 
     .compare-selector {
-        position: static;
-        justify-content: flex-end;
-        padding: 0 8px 8px;
-        transform: none;
+        position: absolute;
+        top: 50%;
+        right: 80px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .compare-summary {
@@ -1154,17 +1157,17 @@ button {
 
 .favorite-btn {
     position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 42px;
-    height: 42px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255,255,255,.95);
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 100;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
 }
