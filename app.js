@@ -423,11 +423,11 @@ function render() {
 
         (state.bodyFilter === 'all' || c.bodyStyle === state.bodyFilter) &&
 
-        c.price >= state.minPrice &&
-        c.price <= state.maxPrice &&
+        (state.minPrice === 0 || c.price >= state.minPrice) &&
+        (state.maxPrice === Infinity || c.price <= state.maxPrice) &&
 
-        c.year >= state.minYear &&
-        c.year <= state.maxYear &&
+        (state.minYear === 0 || c.year >= state.minYear) &&
+        (state.maxYear === Infinity || c.year <= state.maxYear) &&
 
         (state.transmission === 'all' ||
             c.transmission === state.transmission) &&
@@ -437,7 +437,7 @@ function render() {
 
         // NOTE: cars.json uses the key "fueltype" (lowercase t), not "fuelType"
         (state.fuelType === 'all' ||
-            c.fueltype === state.fuelType)
+            c.fueltype === state.fuelType) &&
 
         (state.make === 'all' ||
             c.make === state.make) &&
