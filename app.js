@@ -130,6 +130,12 @@ const customProfile = document.querySelector('#custom-profile');
 const summary = document.querySelector('#profile-summary');
 const resultsTitle = document.querySelector('#results-title');
 
+const heroTitle = document.querySelector("#hero-title");
+const heroSubtitle = document.querySelector("#hero-subtitle");
+const heroMatchScore = document.querySelector("#hero-match-score");
+const heroImage = document.querySelector("#hero-image");
+const heroSpecs = document.querySelector("#hero-specs");
+
 const compareButton = document.querySelector('#compare-button');
 const clearCompareButton = document.querySelector('#clear-compare');
 const compareCount = document.querySelector('#compare-count');
@@ -403,6 +409,14 @@ function getCustomProfile() {
     };
 }
 
+/* ---------------- HERO SUBTITLE ---------------- */
+
+function getHeroSubtitle(car) {
+
+    return `The best ${car.fueltype.toLowerCase()} ${car.bodyStyle.toLowerCase()} for drivers looking for excellent value and reliability.`;
+
+}
+
 /* ---------------- RENDER ---------------- */
 
 function render() {
@@ -561,6 +575,8 @@ function renderDetails(carId) {
         render();
         return;
     }
+
+   heroSubtitle.textContent = getHeroSubtitle(car);
 
     const explanation = getRecommendationExplanation(car, profile);
 
