@@ -542,6 +542,31 @@
                 </div>
             </section>
 
+            <div class="compare-toolbar">
+                <div>
+                    <strong>Compare cars</strong>
+
+                    <span id="compare-count">
+                        0 of 3 selected
+                    </span>
+                </div>
+
+                <div class="compare-toolbar-actions">
+                    <button id="clear-compare"
+                            class="secondary-button"
+                            type="button"
+                            disabled>
+                        Clear
+                    </button>
+
+                    <button id="compare-button"
+                            type="button"
+                            disabled>
+                        Compare
+                    </button>
+                </div>
+            </div>
+
             <section id="rankings-list"
                      class="rankings-list"
                      aria-live="polite">
@@ -604,6 +629,38 @@
                 </section>
 
             </div>
+
+        </section>
+
+        <!-- COMPARE -->
+        <section id="compare-view" class="view hidden">
+
+            <header class="details-hero">
+                <div>
+                    <p class="eyebrow">Side-by-side comparison</p>
+
+                    <h2>Compare your matches.</h2>
+
+                    <p class="results-intro">
+                        See which vehicle wins in the categories that matter
+                        most to your selected profile.
+                    </p>
+                </div>
+
+                <button id="back-compare"
+                        class="secondary-button"
+                        type="button">
+                    Back to Rankings
+                </button>
+            </header>
+
+            <section id="compare-summary"
+                     class="compare-summary">
+            </section>
+
+            <section id="compare-grid"
+                     class="compare-grid">
+            </section>
 
         </section>
 
