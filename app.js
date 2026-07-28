@@ -412,9 +412,10 @@ function getCustomProfile() {
 /* ---------------- HERO SUBTITLE ---------------- */
 
 function getHeroSubtitle(car) {
+    const fuelType = car.fuelType || 'vehicle';
+    const bodyStyle = car.bodyStyle || 'car';
 
-    return `The best ${car.fueltype.toLowerCase()} ${car.bodyStyle.toLowerCase()} for drivers looking for excellent value and reliability.`;
-
+    return `A ${fuelType.toLowerCase()} ${bodyStyle.toLowerCase()} offering strong value, reliability, and everyday usability.`;
 }
 
 /* ---------------- RENDER ---------------- */
@@ -449,9 +450,8 @@ function render() {
         (state.drivetrain === 'all' ||
             c.drivetrain === state.drivetrain) &&
 
-        // NOTE: cars.json uses the key "fueltype" (lowercase t), not "fuelType"
         (state.fuelType === 'all' ||
-            c.fueltype === state.fuelType) &&
+            c.fuelType === state.fuelType) &&
 
         (state.make === 'all' ||
             c.make === state.make) &&
@@ -576,7 +576,9 @@ function renderDetails(carId) {
         return;
     }
 
-   heroSubtitle.textContent = getHeroSubtitle(car);
+    if (heroSubtitle) {
+        heroSubtitle.textContent = getHeroSubtitle(car);
+    }
 
     const explanation = getRecommendationExplanation(car, profile);
 
