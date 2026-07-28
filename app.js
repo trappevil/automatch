@@ -60,6 +60,7 @@ const profiles = {
 const state = {
     cars: [],
     rankedCars: [],
+    favorites: [],
     selectedProfileKey: 'firstTimeBuyer',
     searchTerm: '',
     sortMode: 'bestMatch',
@@ -436,7 +437,7 @@ function render() {
 
         // NOTE: cars.json uses the key "fueltype" (lowercase t), not "fuelType"
         (state.fuelType === 'all' ||
-            c.fuelType === state.fuelType) &&
+            c.fueltype === state.fuelType)
 
         (state.make === 'all' ||
             c.make === state.make) &&
@@ -482,6 +483,17 @@ function render() {
 
                 <span>Compare</span>
             </label>
+
+            <button
+            class="favorite-btn"
+            data-favorite="${c.id}"
+            type="button">
+            ${
+                state.favorites.includes(c.id)
+                ? "❤️"
+                : "🤍"
+            }
+            </button>
 
             <button
                 class="ranking-row"
@@ -1028,6 +1040,14 @@ on(profileForm, 'submit', e => {
 });
 
 on(rankingsList, 'click', e => {
+
+    const favorite = e.target.closest('.favorite-btn');
+
+    if (favorite) {
+        toggleFavorite(favorite.dataset.favorite);
+        return;
+    }
+
     const checkbox = e.target.closest('.compare-checkbox');
 
     if (checkbox) {
@@ -1040,6 +1060,7 @@ on(rankingsList, 'click', e => {
     if (!row) return;
 
     renderDetails(row.dataset.id);
+
 });
 
 on(searchInput, 'input', e => {
@@ -1147,6 +1168,16 @@ on(performanceSlider, 'input', e => handleSlider('performance', e.target.value))
 on(document.querySelector('#back-home'), 'click', () => showView('home'));
 on(document.querySelector('#back-results'), 'click', () => showView('results'));
 
+/* ---------------- FAVORITES ---------------- */
+
+function loadFavorites() {
+    const saved = localStorage.getItem("automatch-favorites");
+
+    if (saved) {
+        state.favorites = JSON.parse(saved);
+    }
+}
+
 /* ---------------- LOAD ---------------- */
 
 async function loadCars() {
@@ -1182,8 +1213,33 @@ async function loadCars() {
     }
 }
 
+loadFavorites();
 loadCars();
 updateSlidersUI();
+
+function saveFavorites() {
+    localStorage.setItem(
+        "automatch-favorites",
+        JSON.stringify(state.favorites)
+    );
+}
+function toggleFavorite(carId) {
+
+    if (state.favorites.includes(carId)) {
+
+        state.favorites =
+            state.favorites.filter(id => id !== carId);
+
+    } else {
+
+        state.favorites.push(carId);
+
+    }
+
+    saveFavorites();
+
+    render();
+}
 
 window.addEventListener('DOMContentLoaded', () => {
     initLocks();
