@@ -1158,16 +1158,36 @@ button {
 .favorite-btn {
     position: absolute;
     top: 50%;
-    right: 28px;
+    left: 260px; /* Move the heart beside the car info */
+
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: transparent;
+    justify-content: center;
     border: none;
-    font-size: 24px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    font-size: 22px;
     cursor: pointer;
     z-index: 100;
+    transition: background-color .2s ease, color .2s ease;
 }
+
+    .favorite-btn:hover {
+        background: rgba(0, 113, 227, 0.12);
+        color: var(--accent);
+        /* DON'T move the button */
+        transform: translateY(-50%);
+    }
+
+    .favorite-btn:active {
+        transform: translateY(-50%);
+    }
+
+    .favorite-btn:focus-visible {
+        outline: none;
+        background: rgba(0, 113, 227, 0.18);
+    }
