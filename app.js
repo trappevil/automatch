@@ -80,6 +80,9 @@ const state = {
     minTorque: 0,
 
     minSeats: 0,
+
+    compareIds: [],
+
     sliders: {
         reliability: 35,
         cost: 25,
@@ -93,6 +96,7 @@ const views = {
     home: document.querySelector('#home-view'),
     results: document.querySelector('#results-view'),
     details: document.querySelector('#details-view'),
+    compare: document.querySelector('#compare-view'),
     error: document.querySelector('#error-view')
 };
 
@@ -124,6 +128,12 @@ const customProfile = document.querySelector('#custom-profile');
 
 const summary = document.querySelector('#profile-summary');
 const resultsTitle = document.querySelector('#results-title');
+
+const compareButton = document.querySelector('#compare-button');
+const clearCompareButton = document.querySelector('#clear-compare');
+const compareCount = document.querySelector('#compare-count');
+const compareGrid = document.querySelector('#compare-grid');
+const compareSummary = document.querySelector('#compare-summary');
 
 const detailsTitle = document.querySelector('#details-title');
 const detailsFinalScore = document.querySelector('#details-final-score');
@@ -457,13 +467,54 @@ function render() {
         return `<div><b>${c.label}</b><br>${w.toFixed(0)}%</div>`;
     }).join('');
 
-    rankingsList.innerHTML = state.rankedCars.map(c => `
-        <button class="ranking-row" data-id="${c.id}">
-            <span>#${c.rank}</span>
-            <span>${c.name}</span>
-            <span>${c.finalScore.toFixed(1)}</span>
-        </button>
-    `).join('');
+    rankingsList.innerHTML = state.rankedCars.map(c => {
+        const isSelected = state.compareIds.includes(c.id);
+
+        return `
+        <article class="ranking-card">
+
+            <label class="compare-selector">
+                <input
+                    type="checkbox"
+                    class="compare-checkbox"
+                    data-id="${c.id}"
+                    ${isSelected ? 'checked' : ''}>
+
+                <span>Compare</span>
+            </label>
+
+            <button
+                class="ranking-row"
+                type="button"
+                data-id="${c.id}">
+
+                <span class="rank">
+                    #${c.rank}
+                </span>
+
+                <span>
+                    <span class="car-name">
+                        ${c.name}
+                    </span>
+
+                    <span class="car-meta">
+                        ${formatCurrency(c.price)}
+                        · ${c.transmission}
+                        · ${c.drivetrain}
+                    </span>
+                </span>
+
+                <span class="final-score">
+                    ${c.finalScore.toFixed(1)}
+                </span>
+
+            </button>
+
+        </article>
+    `;
+    }).join('');
+
+    updateCompareUI();
 
     showView('results');
 }
@@ -649,6 +700,307 @@ function renderDetails(carId) {
     showView('details');
 }
 
+/* ---------------- COMPARE MODE ---------------- */
+
+function getComparedCars() {
+    return state.compareIds
+        .map(id => state.rankedCars.find(car => car.id === id))
+        .filter(Boolean);
+}
+
+function updateCompareUI() {
+    const count = state.compareIds.length;
+
+    if (compareCount) {
+        compareCount.textContent = `${count} of 3 selected`;
+    }
+
+    if (compareButton) {
+        compareButton.disabled = count < 2;
+    }
+
+    if (clearCompareButton) {
+        clearCompareButton.disabled = count === 0;
+    }
+
+    document
+        .querySelectorAll('.compare-checkbox')
+        .forEach(checkbox => {
+            checkbox.checked =
+                state.compareIds.includes(checkbox.dataset.id);
+        });
+}
+
+function toggleCompareCar(carId) {
+    const isSelected = state.compareIds.includes(carId);
+
+    if (isSelected) {
+        state.compareIds =
+            state.compareIds.filter(id => id !== carId);
+
+        updateCompareUI();
+        return;
+    }
+
+    if (state.compareIds.length >= 3) {
+        alert('You can compare up to three cars at once.');
+        updateCompareUI();
+        return;
+    }
+
+    state.compareIds.push(carId);
+    updateCompareUI();
+}
+
+function getBestValue(cars, key, lowerIsBetter = false) {
+    const values = cars
+        .map(car => Number(car[key]))
+        .filter(Number.isFinite);
+
+    if (!values.length) return null;
+
+    return lowerIsBetter
+        ? Math.min(...values)
+        : Math.max(...values);
+}
+
+function renderComparisonRow(
+    label,
+    cars,
+    key,
+    formatter = value => value,
+    lowerIsBetter = false
+) {
+    const bestValue = getBestValue(cars, key, lowerIsBetter);
+
+    const cells = cars.map(car => {
+        const rawValue = Number(car[key]);
+        const isWinner =
+            Number.isFinite(rawValue) &&
+            rawValue === bestValue;
+
+        const displayedValue = Number.isFinite(rawValue)
+            ? formatter(rawValue)
+            : '—';
+
+        return `
+            <div class="compare-cell ${isWinner ? 'compare-winner' : ''}">
+                ${displayedValue}
+
+                ${isWinner
+                ? '<span class="winner-label">Best</span>'
+                : ''
+            }
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="compare-row">
+            <div class="compare-row-label">
+                ${label}
+            </div>
+
+            ${cells}
+        </div>
+    `;
+}
+
+function renderTextComparisonRow(label, cars, key) {
+    const cells = cars.map(car => `
+        <div class="compare-cell">
+            ${car[key] ?? '—'}
+        </div>
+    `).join('');
+
+    return `
+        <div class="compare-row">
+            <div class="compare-row-label">
+                ${label}
+            </div>
+
+            ${cells}
+        </div>
+    `;
+}
+
+function renderCompare() {
+    const cars = getComparedCars();
+
+    if (cars.length < 2) {
+        alert('Select at least two cars to compare.');
+        return;
+    }
+
+    const profile =
+        state.selectedProfileKey === 'custom'
+            ? getCustomProfile()
+            : profiles[state.selectedProfileKey];
+
+    const highestScore = Math.max(
+        ...cars.map(car => Number(car.finalScore) || 0)
+    );
+
+    const bestOverallCars = cars.filter(
+        car => Number(car.finalScore) === highestScore
+    );
+
+    compareSummary.innerHTML = `
+        <div>
+            <p class="eyebrow">Best overall match</p>
+
+            <h3>
+                ${bestOverallCars.map(car => car.name).join(' and ')}
+            </h3>
+
+            <p>
+                Based on the ${profile.label} profile and your
+                selected category weights.
+            </p>
+        </div>
+
+        <strong>
+            ${highestScore.toFixed(1)}
+        </strong>
+    `;
+
+    const carHeaders = cars.map(car => `
+        <div class="compare-car-header">
+            <span class="compare-rank">
+                #${car.rank}
+            </span>
+
+            <h3>${car.name}</h3>
+
+            <strong>
+                ${car.finalScore.toFixed(1)}
+            </strong>
+
+            <button
+                type="button"
+                class="secondary-button compare-details-button"
+                data-compare-details="${car.id}">
+                View Details
+            </button>
+        </div>
+    `).join('');
+
+    const weightedRows = categories.map(category =>
+        renderComparisonRow(
+            category.label,
+            cars,
+            category.key,
+            value => `${value}/100`
+        )
+    ).join('');
+
+    const qualityRows = qualityFactors.map(factor =>
+        renderComparisonRow(
+            factor.label,
+            cars,
+            factor.key,
+            value => `${value}/100`
+        )
+    ).join('');
+
+    compareGrid.style.setProperty(
+        '--compare-columns',
+        cars.length
+    );
+
+    compareGrid.innerHTML = `
+        <div class="compare-header-row">
+            <div class="compare-corner">
+                Vehicle
+            </div>
+
+            ${carHeaders}
+        </div>
+
+        <div class="compare-section-title">
+            Buying information
+        </div>
+
+        ${renderComparisonRow(
+        'Price',
+        cars,
+        'price',
+        value => formatCurrency(value),
+        true
+    )}
+
+        ${renderComparisonRow(
+        'Year',
+        cars,
+        'year',
+        value => String(value)
+    )}
+
+        ${renderTextComparisonRow(
+        'Body style',
+        cars,
+        'bodyStyle'
+    )}
+
+        ${renderTextComparisonRow(
+        'Transmission',
+        cars,
+        'transmission'
+    )}
+
+        ${renderTextComparisonRow(
+        'Drivetrain',
+        cars,
+        'drivetrain'
+    )}
+
+        ${renderTextComparisonRow(
+        'Fuel type',
+        cars,
+        'fuelType'
+    )}
+
+        ${renderComparisonRow(
+        'Seats',
+        cars,
+        'seatingCapacity',
+        value => String(value)
+    )}
+
+        <div class="compare-section-title">
+            Performance specifications
+        </div>
+
+        ${renderComparisonRow(
+        'Horsepower',
+        cars,
+        'horsepower',
+        value => `${value} hp`
+    )}
+
+        ${renderComparisonRow(
+        'Torque',
+        cars,
+        'torque',
+        value => `${value} lb-ft`
+    )}
+
+        <div class="compare-section-title">
+            Your weighted priorities
+        </div>
+
+        ${weightedRows}
+
+        <div class="compare-section-title">
+            Supporting quality factors
+        </div>
+
+        ${qualityRows}
+    `;
+
+    showView('compare');
+}
+
 /* ---------------- EVENTS ---------------- */
 
 on(profileSelect, 'change', e => {
@@ -676,7 +1028,14 @@ on(profileForm, 'submit', e => {
 });
 
 on(rankingsList, 'click', e => {
-    const row = e.target.closest('[data-id]');
+    const checkbox = e.target.closest('.compare-checkbox');
+
+    if (checkbox) {
+        toggleCompareCar(checkbox.dataset.id);
+        return;
+    }
+
+    const row = e.target.closest('.ranking-row[data-id]');
 
     if (!row) return;
 
@@ -751,6 +1110,30 @@ on(minTorqueInput, 'input', e => {
 on(minSeatsInput, 'input', e => {
     state.minSeats = Number(e.target.value) || 0;
     render();
+});
+
+on(compareButton, 'click', () => {
+    renderCompare();
+});
+
+on(clearCompareButton, 'click', () => {
+    state.compareIds = [];
+    updateCompareUI();
+});
+
+on(document.querySelector('#back-compare'), 'click', () => {
+    showView('results');
+});
+
+on(compareGrid, 'click', e => {
+    const detailsButton =
+        e.target.closest('[data-compare-details]');
+
+    if (!detailsButton) return;
+
+    renderDetails(
+        detailsButton.dataset.compareDetails
+    );
 });
 
 /* sliders */
