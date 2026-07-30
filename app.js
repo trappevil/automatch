@@ -577,7 +577,10 @@ function renderDetails(carId) {
     }
 
     if (heroSubtitle) {
-        heroSubtitle.textContent = getHeroSubtitle(car);
+        heroSubtitle.textContent = getHeroSubtitle(car)
+
+        heroImage.src = car.image;
+        heroImage.alt = car.name;            ;
     }
 
     const explanation = getRecommendationExplanation(car, profile);
