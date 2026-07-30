@@ -2,6 +2,7 @@
     {
         "id": "2015-honda-civic",
         "name": "2015 Honda Civic",
+        "image": "images/2015-honda-civic.webp",
         "price": 9000,
         "year": 2015,
         "make": "Honda",
@@ -25,6 +26,7 @@
     {
         "id": "2015-toyota-corolla",
         "name": "2015 Toyota Corolla",
+        "image": "images/2015-toyota-corolla.webp",
         "price": 7000,
         "year": 2015,
         "make": "Toyota",
@@ -48,6 +50,7 @@
     {
         "id": "2015-mazda3",
         "name": "2015 Mazda3",
+        "image": "images/2015-mazda3.webp",
         "price": 8800,
         "year": 2015,
         "make": "Mazda",
@@ -71,6 +74,7 @@
     {
         "id": "2015-hyundai-elantra",
         "name": "2015 Hyundai Elantra",
+        "image": "images/2015-hyundai-elantra.webp",
         "price": 7000,
         "year": 2015,
         "make": "Hyundai",
@@ -94,6 +98,7 @@
     {
         "id": "2015-kia-forte",
         "name": "2015 Kia Forte",
+        "image": "images/2015-kia-forte.webp",
         "price": 6500,
         "year": 2015,
         "make": "Kia",
@@ -117,6 +122,7 @@
     {
         "id": "2015-subaru-impreza",
         "name": "2015 Subaru Impreza",
+        "image": "images/2015-subaru-impreza.webp",
         "price": 9000,
         "year": 2015,
         "make": "Subaru",
@@ -140,6 +146,7 @@
     {
         "id": "2015-nissan-sentra",
         "name": "2015 Nissan Sentra",
+        "image": "images/2015-nissan-sentra.webp",
         "price": 5000,
         "year": 2015,
         "make": "Nissan",
@@ -163,6 +170,7 @@
     {
         "id": "2015-volkswagen-jetta",
         "name": "2015 Volkswagen Jetta",
+        "image": "images/2015-volkswagen-jetta.webp",
         "price": 5500,
         "year": 2015,
         "make": "Volkswagen",
@@ -186,6 +194,7 @@
     {
         "id": "2015-toyota-camry",
         "name": "2015 Toyota Camry",
+        "image": "images/2015-toyota-camry.webp",
         "price": 9000,
         "year": 2015,
         "make": "Toyota",
@@ -209,6 +218,7 @@
     {
         "id": "2015-honda-accord",
         "name": "2015 Honda Accord",
+        "image": "images/2015-honda-accord.webp",
         "price": 7000,
         "year": 2015,
         "make": "Honda",
@@ -232,6 +242,7 @@
     {
         "id": "2015-hyundai-sonata",
         "name": "2015 Hyundai Sonata",
+        "image": "images/2015-hyundai-sonata.webp",
         "price": 6000,
         "year": 2015,
         "make": "Hyundai",
@@ -255,6 +266,7 @@
     {
         "id": "2015-kia-k5",
         "name": "2015 Kia K5",
+        "image": "images/2015-kia-k5.webp",
         "price": 7000,
         "year": 2015,
         "make": "Kia",
@@ -278,6 +290,7 @@
     {
         "id": "2015-subaru-legacy",
         "name": "2015 Subaru Legacy",
+        "image": "images/2015-subaru-legacy.webp",
         "price": 9000,
         "year": 2015,
         "make": "Subaru",
@@ -301,6 +314,7 @@
     {
         "id": "2015-toyota-prius",
         "name": "2015 Toyota Prius",
+        "image": "images/2015-toyota-prius.webp",
         "price": 8800,
         "year": 2015,
         "make": "Toyota",
@@ -324,6 +338,7 @@
     {
         "id": "2017-hyundai-ioniq-hybrid",
         "name": "2017 Hyundai Ioniq Hybrid",
+        "image": "images/2017-hyundai-ioniq-hybrid.webp",
         "price": 7875,
         "year": 2017,
         "make": "Hyundai",
@@ -347,6 +362,7 @@
     {
         "id": "2015-toyota-rav4",
         "name": "2015 Toyota RAV4",
+        "image": "images/2015-toyota-rav4.webp",
         "price": 14000,
         "year": 2015,
         "make": "Toyota",
@@ -370,6 +386,7 @@
     {
         "id": "2015-honda-crv",
         "name": "2015 Honda CR-V",
+        "image": "images/2015-honda-crv.webp",
         "price": 9000,
         "year": 2015,
         "make": "Honda",
@@ -393,6 +410,7 @@
     {
         "id": "2015-mazda-cx5",
         "name": "2015 Mazda CX-5",
+        "image": "images/2015-mazda-cx5.webp",
         "price": 7500,
         "year": 2015,
         "make": "Mazda",
@@ -416,6 +434,7 @@
     {
         "id": "2015-subaru-forester",
         "name": "2015 Subaru Forester",
+        "image": "images/2015-subaru-forester.webp",
         "price": 10500,
         "year": 2015,
         "make": "Subaru",
@@ -439,6 +458,7 @@
     {
         "id": "2015-ford-escape",
         "name": "2015 Ford Escape",
+        "image": "images/2015-ford-escape.webp",
         "price": 5995,
         "year": 2015,
         "make": "Ford",
@@ -462,6 +482,7 @@
     {
         "id": "2015-hyundai-tucson",
         "name": "2015 Hyundai Tucson",
+        "image": "images/2015-hyundai-tucson.webp",
         "price": 9000,
         "year": 2015,
         "make": "Hyundai",
@@ -485,6 +506,7 @@
     {
         "id": "2015-mustang-gt",
         "name": "2015 Ford Mustang GT",
+        "image": "images/2015-mustang-gt.webp",
         "price": 20000,
         "year": 2015,
         "make": "Ford",
@@ -508,6 +530,7 @@
     {
         "id": "2015-camaro-ss",
         "name": "2015 Chevrolet Camaro SS",
+        "image": "images/2015-camaro-ss.webp",
         "price": 17500,
         "year": 2015,
         "make": "Chevrolet",
@@ -531,6 +554,7 @@
     {
         "id": "2014-charger-rt",
         "name": "2014 Dodge Charger R/T",
+        "image": "images/2014-charger-rt.webp",
         "price": 4200,
         "year": 2014,
         "make": "Dodge",
@@ -554,6 +578,7 @@
     {
         "id": "2014-corvette-stingray",
         "name": "2014 Chevrolet Corvette Stingray",
+        "image": "images/2014-corvette-stingray.webp",
         "price": 35000,
         "year": 2014,
         "make": "Chevrolet",
@@ -577,6 +602,7 @@
     {
         "id": "2021-gr-supra",
         "name": "2021 Toyota GR Supra",
+        "image": "images/2021-gr-supra.webp",
         "price": 36000,
         "year": 2021,
         "make": "Toyota",
@@ -600,6 +626,7 @@
     {
         "id": "2015-wrx",
         "name": "2015 Subaru WRX",
+        "image": "images/2015-wrx.webp",
         "price": 13000,
         "year": 2015,
         "make": "Subaru",
@@ -623,6 +650,7 @@
     {
         "id": "2015-frs",
         "name": "2015 Scion FR-S",
+        "image": "images/2015-frs.webp",
         "price": 13000,
         "year": 2015,
         "make": "Scion",
@@ -646,6 +674,7 @@
     {
         "id": "2015-370z",
         "name": "2015 Nissan 370Z",
+        "image": "images/2015-370z.webp",
         "price": 15000,
         "year": 2015,
         "make": "Nissan",
@@ -669,6 +698,7 @@
     {
         "id": "2015-porsche-911",
         "name": "2015 Porsche 911 Carrera",
+        "image": "images/2015-porsche-911.webp",
         "price": 60000,
         "year": 2015,
         "make": "Porsche",
@@ -692,6 +722,7 @@
     {
         "id": "2015-audi-rs5",
         "name": "2015 Audi RS5",
+        "image": "images/2015-audi-rs5.webp",
         "price": 20000,
         "year": 2015,
         "make": "Audi",
@@ -715,6 +746,7 @@
     {
         "id": "2015-bmw-m4",
         "name": "2015 BMW M4",
+        "image": "images/2015-bmw-m4.webp",
         "price": 30000,
         "year": 2015,
         "make": "BMW",
@@ -738,6 +770,7 @@
     {
         "id": "2015-c63-amg",
         "name": "2015 Mercedes-Benz C63 AMG",
+        "image": "images/2015-c63-amg.webp",
         "price": 25000,
         "year": 2015,
         "make": "Mercedes-Benz",
@@ -761,6 +794,7 @@
     {
         "id": "2021-hellcat",
         "name": "2021 Dodge Challenger SRT Hellcat",
+        "image": "images/2021-hellcat.webp",
         "price": 45000,
         "year": 2021,
         "make": "Dodge",
@@ -784,6 +818,7 @@
     {
         "id": "2016-honda-fit",
         "name": "2016 Honda Fit",
+        "image": "images/2016-honda-fit.webp",
         "price": 9500,
         "year": 2016,
         "make": "Honda",
@@ -807,6 +842,7 @@
     {
         "id": "2016-toyota-yaris",
         "name": "2016 Toyota Yaris",
+        "image": "images/2016-toyota-yaris.webp",
         "price": 6000,
         "year": 2016,
         "make": "Toyota",
@@ -830,6 +866,7 @@
     {
         "id": "2017-honda-civic-si",
         "name": "2017 Honda Civic Si",
+        "image": "images/2017-honda-civic-si.webp",
         "price": 16000,
         "year": 2017,
         "make": "Honda",
@@ -853,6 +890,7 @@
     {
         "id": "2016-volkswagen-gti",
         "name": "2016 Volkswagen GTI",
+        "image": "images/2016-volkswagen-gti.webp",
         "price": 10000,
         "year": 2016,
         "make": "Volkswagen",
@@ -876,6 +914,7 @@
     {
         "id": "2016-mazda-miata",
         "name": "2016 Mazda MX-5 Miata",
+        "image": "images/2016-mazda-miata.webp",
         "price": 15000,
         "year": 2016,
         "make": "Mazda",
@@ -899,6 +938,7 @@
     {
         "id": "2017-hyundai-elantra-gt",
         "name": "2017 Hyundai Elantra GT",
+        "image": "images/2017-hyundai-elantra-gt.webp",
         "price": 6000,
         "year": 2017,
         "make": "Hyundai",
@@ -922,6 +962,7 @@
     {
         "id": "2017-kia-optima",
         "name": "2017 Kia Optima",
+        "image": "images/2017-kia-optima.webp",
         "price": 8000,
         "year": 2017,
         "make": "Kia",
@@ -945,6 +986,7 @@
     {
         "id": "2017-toyota-86",
         "name": "2017 Toyota 86",
+        "image": "images/2017-toyota-86.webp",
         "price": 11000,
         "year": 2017,
         "make": "Toyota",
@@ -968,6 +1010,7 @@
     {
         "id": "2017-honda-hrv",
         "name": "2017 Honda HR-V",
+        "image": "images/2017-honda-hrv.webp",
         "price": 13000,
         "year": 2017,
         "make": "Honda",
@@ -991,6 +1034,7 @@
     {
         "id": "2017-subaru-outback",
         "name": "2017 Subaru Outback",
+        "image": "images/2017-subaru-outback.webp",
         "price": 13000,
         "year": 2017,
         "make": "Subaru",
@@ -1014,6 +1058,7 @@
     {
         "id": "2016-ford-fusion",
         "name": "2016 Ford Fusion",
+        "image": "images/2016-ford-fusion.webp",
         "price": 3000,
         "year": 2016,
         "make": "Ford",
@@ -1037,6 +1082,7 @@
     {
         "id": "2016-chevy-malibu",
         "name": "2016 Chevrolet Malibu",
+        "image": "images/2016-chevy-malibu.webp",
         "price": 4000,
         "year": 2016,
         "make": "Chevrolet",
@@ -1060,6 +1106,7 @@
     {
         "id": "2017-lexus-is300",
         "name": "2017 Lexus IS 300",
+        "image": "images/2017-lexus-is300.webp",
         "price": 16500,
         "year": 2017,
         "make": "Lexus",
@@ -1083,6 +1130,7 @@
     {
         "id": "2017-acura-tlx",
         "name": "2017 Acura TLX",
+        "image": "images/2017-acura-tlx.webp",
         "price": 14000,
         "year": 2017,
         "make": "Acura",
@@ -1106,6 +1154,7 @@
     {
         "id": "2016-infiniti-q50",
         "name": "2016 Infiniti Q50",
+        "image": "images/2016-infiniti-q50.webp",
         "price": 9800,
         "year": 2016,
         "make": "Infiniti",
@@ -1129,6 +1178,7 @@
     {
         "id": "2017-bmw-340i",
         "name": "2017 BMW 340i",
+        "image": "images/2017-bmw-340i.webp",
         "price": 16000,
         "year": 2017,
         "make": "BMW",
@@ -1152,6 +1202,7 @@
     {
         "id": "2017-audi-a4",
         "name": "2017 Audi A4",
+        "image": "images/2017-audi-a4.webp",
         "price": 9000,
         "year": 2017,
         "make": "Audi",
@@ -1175,6 +1226,7 @@
     {
         "id": "2017-mercedes-c300",
         "name": "2017 Mercedes C300",
+        "image": "images/2017-mercedes-c300.webp",
         "price": 14000,
         "year": 2017,
         "make": "Mercedes-Benz",
@@ -1198,6 +1250,7 @@
     {
         "id": "2016-jeep-grand-cherokee",
         "name": "2016 Jeep Grand Cherokee",
+        "image": "images/2016-jeep-grand-cherokee.webp",
         "price": 10000,
         "year": 2016,
         "make": "Jeep",
@@ -1221,6 +1274,7 @@
     {
         "id": "2016-ford-explorer",
         "name": "2016 Ford Explorer",
+        "image": "images/2016-ford-explorer.webp",
         "price": 10000,
         "year": 2016,
         "make": "Ford",
